@@ -45,7 +45,7 @@ export default Vue.extend({})
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('~assets/GYM_Cir_10Item_OW_Front_TCSnow_hires.jpg');
+  background: url('images/test.jpg');
 }
 
 .title {
