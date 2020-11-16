@@ -43,5 +43,9 @@ export default {
   axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    extend(config, { loaders }) {
+      imgUrl: { limit: 0 }
+    }
+  },
 }
