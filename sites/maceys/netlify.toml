@@ -1,6 +1,5 @@
 [build]
   command = "cd ../..; npm run maceys:generate"
-  ignore = "git diff --quiet HEAD^ HEAD sites/maceys"
   publish = "sites/maceys/dist"
 
 [[redirects]]
