@@ -1,5 +1,5 @@
 [build]
-  base = ""
+  base = "/"
   command = "npm run maceys:generate"
   publish = "sites/maceys/dist"
 
