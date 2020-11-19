@@ -2,8 +2,3 @@
   base = "/"
   command = "npm run maceys:generate"
   publish = "sites/maceys/dist"
-
-[[redirects]]
-  from = "*"
-  to = "/404.html"
-  status = 404
