@@ -1,4 +1,3 @@
 [build]
-  base = "sites/maceys"
   command = "cd ../..; npm install; npm run maceys:generate"
-  publish = "sites/maceys/dist"
+  publish = "dist"
