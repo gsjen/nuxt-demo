@@ -1,4 +1,4 @@
 [build]
-  base = "/opt/build/repo"
+  base = "."
   command = "npm run maceys:generate"
   publish = "sites/maceys/dist"
