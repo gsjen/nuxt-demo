@@ -1,3 +1,7 @@
 [build]
-  command = "cd ../..; npm install; npm run maceys:generate"
-  publish = "dist"
+base = "../.."
+command = "npm run maceys:generate"
+publish = "sites/maceys/dist"
+
+# [[plugins]]
+# package = "../../build/netlify"
