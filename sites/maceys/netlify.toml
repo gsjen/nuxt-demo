@@ -1,4 +1,4 @@
 [build]
-  base = "."
+  base = "sites/maceys"
   command = "npm run maceys:generate"
   publish = "sites/maceys/dist"
