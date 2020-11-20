@@ -1,7 +1,0 @@
-[build]
-base = "../.."
-command = "npm run maceys:generate"
-publish = "sites/maceys/dist"
-
-# [[plugins]]
-# package = "../../build/netlify"

@@ -2,6 +2,10 @@
   "name": "nuxt-demo",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "sites/maceys",
+    "sites/petersons"
+  ],
   "scripts": {
     "maceys:dev": "nuxt-ts -c ./sites/maceys/nuxt.config.js",
     "maceys:generate": "nuxt-ts generate -c ./sites/maceys/nuxt.config.js",
