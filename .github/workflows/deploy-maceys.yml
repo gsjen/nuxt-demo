@@ -27,7 +27,10 @@ jobs:
 
       - name: Run Nuxt Generate
         working-directory: sites/maceys
-        run: npm run generate
+        run: |
+          npm -v
+          npm install
+          npm run generate
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
