@@ -2,13 +2,13 @@
 
 name: Deploy Maceys to Netlify
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
-    paths: 
-    - 'sites/maceys/**'
+    branches: [master]
+    paths:
+      - 'sites/maceys/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,15 +24,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Run Nuxt Generate
-        working-directory: sites/maceys        
+        working-directory: sites/maceys
         run: npm run generate
-      
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: 'sites/maceys/dist'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_SITE_ID: '53d9ac35-d437-4bf5-9390-5871c153d563'
