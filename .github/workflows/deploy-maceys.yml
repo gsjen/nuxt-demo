@@ -25,12 +25,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Run Nuxt Generate
-        working-directory: sites/maceys
+      - uses: actions/setup-node@v1
+        with:
+          node_version: '15'
         run: |
           npm -v
           npm install
-          npm run generate
+
+      - name: Run Nuxt Generate
+        working-directory: sites/maceys
+        run: npm run generate
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
