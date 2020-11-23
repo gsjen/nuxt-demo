@@ -28,7 +28,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node_version: '15'
-        run: |
+      
+      - run: |
           npm -v
           npm install
 
