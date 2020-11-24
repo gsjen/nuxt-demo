@@ -20,7 +20,7 @@
         >
           GitHub
         </a>
-        <NuxtLink to="/fun">Funz</NuxtLink>
+        <NuxtLink to="/fun">Fun</NuxtLink>
         <NuxtLink to="/blogs">Blogs</NuxtLink>
       </div>
     </div>
