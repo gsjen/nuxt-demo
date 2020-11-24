@@ -28,7 +28,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: '**/node_modules'
-          key: ${{ hashFiles('**/package-lock.json') }} 
+          key: ${{ hashFiles('package-lock.json') }} 
 
       - uses: actions/setup-node@v1
         with:
