@@ -7,13 +7,6 @@
     "sites/petersons"
   ],
   "scripts": {
-    "maceys:dev": "nuxt-ts -c ./sites/maceys/nuxt.config.js",
-    "maceys:generate": "nuxt-ts generate -c ./sites/maceys/nuxt.config.js",
-
-    "petersons:dev": "nuxt-ts --config-file sites/petersons/nuxt.config.js",
-    "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "petersons:generate": "nuxt-ts generate --config-file sites/petersons/nuxt.config.js",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style"
