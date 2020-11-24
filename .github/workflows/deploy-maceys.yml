@@ -27,19 +27,18 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node_version: '15'
-        run: |
-          npm -v
-          npm install
+          node-version: '15'
 
-      - name: Run Nuxt Generate
-        working-directory: sites/maceys
+      - run: npm install
+
+      - working-directory: sites/maceys
         run: npm run generate
 
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.1
+      - uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: 'sites/maceys/dist'
+          production-deploy: ${{ github.ref == 'refs/heads/master' }}
+          alias: 'staging'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: '53d9ac35-d437-4bf5-9390-5871c153d563'
