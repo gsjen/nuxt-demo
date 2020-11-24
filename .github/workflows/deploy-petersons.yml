@@ -1,0 +1,36 @@
+name: Deploy Petersons to Netlify
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'sites/petersons/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ hashFiles('package-lock.json') }}
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '15'
+
+      - run: npm ci
+
+      - working-directory: sites/petersons
+        run: npm run generate
+
+      - uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: 'sites/petersons/dist'
+          production-deploy: ${{ github.ref == 'refs/heads/master' }}
+          alias: 'staging'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 'e7501014-f147-45d9-b92b-6b9a5aa4c0f8'
