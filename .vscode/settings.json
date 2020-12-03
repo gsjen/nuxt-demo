@@ -1,0 +1,32 @@
+{
+  "vetur.completion.scaffoldSnippetSources": {
+    "workspace": "💼",
+    "user": "",
+    "vetur": ""
+  },
+  "debug.javascript.usePreview": false,
+  "launch": {
+    "inputs": [
+      {
+        "id": "siteName",
+        "description": "Site name",
+        "type": "pickString",
+        "options": ["maceys", "petersons"]
+      }
+    ],
+    "configurations": [
+      {
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000",
+        "name": "Launch Chrome",
+        "webRoot": "${workspaceFolder}/sites/${input:siteName}",
+        "sourceMapPathOverrides": {
+          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
+          "webpack:///./*": "${webRoot}/*",
+          "webpack:///*": "${webRoot}/*"
+        }
+      }
+    ]
+  }
+}
