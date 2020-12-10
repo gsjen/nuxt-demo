@@ -65,9 +65,11 @@ module.exports = {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     transpile: ['vuetify/lib'],
-    extend(config) {
+    extend(config, { loaders: { sass, scss } }) {
       config.resolve.alias['shared'] = path.resolve(__dirname, 'shared')
       config.plugins.push(new VuetifyLoaderPlugin())
+      sass.additionalData = '@import "~/assets/variables.scss"'
+      scss.additionalData = '@import "~/assets/variables.scss";'
     },
   },
 

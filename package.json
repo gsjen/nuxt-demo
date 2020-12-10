@@ -1,4 +1,5 @@
 {
+  "name": "nuxt-demo",
   "private": true,
   "workspaces": [
     "sites/maceys",
@@ -11,36 +12,38 @@
     "lint": "npm run lint:js && npm run lint:style"
   },
   "dependencies": {
-    "@mdi/js": "^5.8.55",
     "@nuxt/content": "^1.10.0",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
     "core-js": "^3.6.5",
-    "deepmerge": "^4.2.2",
-    "nuxt": "^2.14.6",
-    "nuxt-webfontloader": "^1.1.0",
-    "sass": "^1.29.0",
-    "sass-loader": "^10.1.0"
+    "nuxt": "^2.14.6"
   },
   "devDependencies": {
+    "@mdi/js": "^5.8.55",
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
-    "@nuxtjs/tailwindcss": "^3.1.0",
+    "@types/lodash": "^4.14.165",
+    "@types/webpack-env": "^1.16.0",
     "babel-eslint": "^10.1.0",
     "boxicons": "^2.0.7",
+    "deepmerge": "^4.2.2",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "lodash": "^4.17.20",
+    "nuxt-webfontloader": "^1.1.0",
     "prettier": "^2.1.2",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
-    "vuetify": "^2.3.18",
+    "vuetify": "^2.3.20",
     "vuetify-loader": "^1.6.0"
   }
 }

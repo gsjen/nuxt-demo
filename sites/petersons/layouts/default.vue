@@ -1,14 +1,22 @@
 <template>
-  <Blog />
+  <v-app>
+    <AppSystemBar></AppSystemBar>
+
+    <AppBar></AppBar>
+
+    <AppView></AppView>
+
+    <AppFooter></AppFooter>
+  </v-app>
 </template>
 
 <script lang="ts">
-import Blog from 'shared/layouts/blog.vue'
-import Vue from 'vue'
-
-export default Vue.extend({
+export default {
   components: {
-    Blog,
+    AppSystemBar: () => import('../components/AppSystemBar.vue'),
+    AppBar: () => import('../components/AppBar.vue'),
+    AppView: () => import('../components/AppView.vue'),
+    AppFooter: () => import('../components/AppFooter.vue'),
   },
-})
+}
 </script>
