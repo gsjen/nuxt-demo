@@ -2,7 +2,8 @@
   "private": true,
   "workspaces": [
     "sites/maceys",
-    "sites/petersons"
+    "sites/petersons",
+    "utils"
   ],
   "scripts": {
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -30,6 +31,7 @@
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/tailwindcss": "^3.1.0",
     "babel-eslint": "^10.1.0",
+    "boxicons": "^2.0.7",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
