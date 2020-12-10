@@ -1,9 +1,4 @@
 {
-  "vetur.completion.scaffoldSnippetSources": {
-    "workspace": "💼",
-    "user": "",
-    "vetur": ""
-  },
   "debug.javascript.usePreview": false,
   "launch": {
     "inputs": [
