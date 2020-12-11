@@ -50,7 +50,7 @@ module.exports = {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxt/content',
-    'nuxt-webfontloader',
+    '~/../../shared/modules/webfontloader',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)

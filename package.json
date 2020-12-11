@@ -2,8 +2,7 @@
   "name": "nuxt-demo",
   "private": true,
   "workspaces": [
-    "sites/maceys",
-    "sites/petersons",
+    "sites/*",
     "utils"
   ],
   "scripts": {
@@ -27,6 +26,7 @@
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@types/lodash": "^4.14.165",
+    "@types/webfontloader": "^1.6.32",
     "@types/webpack-env": "^1.16.0",
     "babel-eslint": "^10.1.0",
     "boxicons": "^2.0.7",
@@ -36,7 +36,6 @@
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "lodash": "^4.17.20",
-    "nuxt-webfontloader": "^1.1.0",
     "prettier": "^2.1.2",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
@@ -44,6 +43,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "vuetify": "^2.3.20",
-    "vuetify-loader": "^1.6.0"
+    "vuetify-loader": "^1.6.0",
+    "webfontloader": "^1.6.28"
   }
 }

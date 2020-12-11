@@ -17,5 +17,5 @@
     },
     "types": ["@types/node", "@types/webpack-env", "@nuxt/types", "vuetify"]
   },
-  "exclude": ["node_modules", ".nuxt", "dist"]
+  "exclude": ["node_modules", ".nuxt", "dist", "*.template.ts"]
 }
