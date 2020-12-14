@@ -14,7 +14,9 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: ~/.npm
+          path: |
+            ~/.npm
+            node_modules/.cache
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
@@ -35,4 +37,4 @@ jobs:
           alias: 'staging'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: 'e7501014-f147-45d9-b92b-6b9a5aa4c0f8'
+          NETLIFY_SITE_ID: '02af7f7f-cdff-4797-9c6d-7dfabd4f3fd5'
