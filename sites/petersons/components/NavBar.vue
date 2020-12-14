@@ -80,7 +80,7 @@ export default {
       {
         label: 'Departments',
         props: {
-          to: 'deparments',
+          to: 'departments',
           nuxt: true,
         },
         children: [

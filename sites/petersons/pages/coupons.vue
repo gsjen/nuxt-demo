@@ -2,7 +2,7 @@
   <v-layout column px-3>
     <v-row>
       <v-col cols="12">
-        <h1>Contact Us</h1>
+        <h1>Coupons</h1>
       </v-col>
     </v-row>
   </v-layout>
@@ -11,7 +11,7 @@
 <script lang="ts">
 export default {
   head: {
-    title: "Peterson's Fresh Market - Contact Us",
+    title: "Peterson's Fresh Market - Coupons",
   },
 }
 </script>

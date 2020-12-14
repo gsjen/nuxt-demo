@@ -1,5 +1,5 @@
 <template>
-  <section class="px-3">
+  <v-layout column px-3>
     <v-row>
       <v-col cols="12">
         <h1>Home Page</h1>
@@ -13,7 +13,7 @@
         <div style="height: 600px; background: green"></div>
       </v-col>
     </v-row>
-  </section>
+  </v-layout>
 </template>
 
 <script lang="ts">
