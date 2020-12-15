@@ -16,7 +16,7 @@ jobs:
 
       - uses: netlify/actions/build@master
         env:
-          GITHUB_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB }}
           NETLIFY_SITE_ID: 773a841f-8447-44b1-8ed7-3c97832501f4
           NETLIFY_CMD: npm run deploy-media
           NETLIFY_DIR: dist/media
