@@ -6,7 +6,7 @@ const glob = require('glob')
 ;(async function () {
   await fs.mkdir('dist/media', { recursive: true })
 
-  glob('!(node_modules)/**/static/**/*.png', async (er, files) => {
+  glob('!(node_modules)/**/static/**/*.@(png|jpg|pdf)', async (er, files) => {
     if (er) {
       consola.fatal(er)
       return
