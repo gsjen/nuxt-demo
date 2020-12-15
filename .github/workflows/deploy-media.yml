@@ -12,11 +12,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: netlify/actions/build@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB }}
-          NETLIFY_SITE_ID: 773a841f-8447-44b1-8ed7-3c97832501f4
-          NETLIFY_CMD: npm run deploy-media
-          NETLIFY_DIR: dist/media
+      - run: curl -X POST -d {} https://api.netlify.com/build_hooks/5fd923adfb03ef0fdf3c0b64
