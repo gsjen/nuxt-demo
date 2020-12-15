@@ -2,8 +2,10 @@ name: Deploy Media to Netlify
 on:
   push:
     branches: [master]
-    paths:
-      - 'sites/**'
+    paths: |
+      **/static/**/*.png
+      **/static/**/*.jpg
+      **/static/**/*.pdf
   workflow_dispatch:
 
 jobs:
@@ -12,11 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: nwtgck/actions-netlify@v1.1
-        with:
-          publish-dir: 'sites/media/test'
-          production-deploy: ${{ github.ref == 'refs/heads/master' }}
-          alias: 'staging'
+      - uses: netlify/actions/build@master
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: '5b6b3023-23e6-4746-8c97-6a8a6995cbfe'
+          GITHUB_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 773a841f-8447-44b1-8ed7-3c97832501f4
+          NETLIFY_CMD: npm run deploy-media
+          NETLIFY_DIR: dist/media
