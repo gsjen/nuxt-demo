@@ -1,0 +1,7 @@
+{
+  "name": "media",
+  "private": true,
+  "scripts": {
+    "build-media": "node ../utils/bin/build-media.js"
+  }
+}

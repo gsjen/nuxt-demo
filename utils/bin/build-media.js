@@ -4,8 +4,13 @@ const path = require('path')
 const glob = require('glob')
 
 ;(async function () {
-  await fs.mkdir('dist/media', { recursive: true })
+  try {
+    await fs.access('dist')
+  } catch {
+    await fs.mkdir('dist')
+  }
 
+  process.chdir('..')
   glob('!(node_modules)/**/static/**/*.@(png|jpg|pdf)', async (er, files) => {
     if (er) {
       consola.fatal(er)
@@ -20,7 +25,7 @@ const glob = require('glob')
         return r
       }, [])
 
-      const dir = path.join('dist/media', ...dirs)
+      const dir = path.join('media/dist', ...dirs)
       await fs.mkdir(dir, { recursive: true })
 
       try {
