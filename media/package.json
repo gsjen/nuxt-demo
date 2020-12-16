@@ -2,6 +2,10 @@
   "name": "media",
   "private": true,
   "scripts": {
-    "build-media": "node ../utils/bin/build-media.js"
+    "build-media": "node bin/build-media.js"
+  },
+  "devDependencies": {
+    "consola": "^2.15.0",
+    "glob": "^7.1.6"
   }
 }
