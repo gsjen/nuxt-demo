@@ -29,11 +29,11 @@ export default Vue.extend({
   }),
 
   async created() {
-    if (!this.$nuxt.$isServer) {
-      this.loadingFont = true
-      await (this as any).$webfontloader.loading
-      this.loadingFont = false
-    }
+    // if (!process.server) {
+    //   this.loadingFont = true
+    //   await (this as any).$webfontloader.loading
+    //   this.loadingFont = false
+    // }
   },
 })
 </script>
