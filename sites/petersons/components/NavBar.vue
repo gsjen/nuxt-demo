@@ -160,6 +160,7 @@ export default {
     ],
     menuIcon: mdiMenuDown,
     menuProps: {
+      eager: true,
       openOnHover: true,
       offsetY: true,
       attach: '#app-bar > .v-toolbar__extension .v-toolbar__content',

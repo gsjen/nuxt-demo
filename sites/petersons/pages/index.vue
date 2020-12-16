@@ -20,7 +20,7 @@
 export default {
   components: {},
   head: {
-    title: "Peterson's Fresh Market",
+    title: '',
   },
 }
 </script>

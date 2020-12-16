@@ -29,7 +29,7 @@ jobs:
       - run: npm ci
 
       - working-directory: sites/petersons
-        run: npm run generate
+        run: npm run generate --fail-on-error
 
       - uses: nwtgck/actions-netlify@v1.1
         with:

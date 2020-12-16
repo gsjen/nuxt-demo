@@ -1,13 +1,18 @@
+const defu = require('defu')
 const path = require('path')
+const _ = require('lodash')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {
+  merge: (overrides) => defu(overrides, config),
+}
+
+const config = {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'nuxt-demo',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,12 +23,10 @@ module.exports = {
       {
         rel: 'preconnect',
         href: 'https://fonts.gstatic.com',
-        crossorigin: true,
       },
       {
         rel: 'dns-prefetch',
         href: 'https://fonts.googleapis.com',
-        crossorigin: true,
       },
     ],
   },
@@ -50,7 +53,7 @@ module.exports = {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxt/content',
-    '~/../../shared/modules/webfontloader',
+    // '~/../../shared/modules/webfontloader',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -71,9 +74,18 @@ module.exports = {
       sass.additionalData = '@import "~/assets/variables.scss"'
       scss.additionalData = '@import "~/assets/variables.scss";'
     },
+    extractCSS: process.env.NODE_ENV === 'production',
   },
 
   generate: {
     fallback: '404.html',
+  },
+
+  static: {
+    cacheDir: path.resolve(
+      process.cwd(),
+      '../../node_modules/.cache/nuxt/' +
+        _.last(path.parse(__dirname).dir.split(path.sep))
+    ),
   },
 }

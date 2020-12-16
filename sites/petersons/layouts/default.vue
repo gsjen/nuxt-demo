@@ -24,6 +24,11 @@ export default Vue.extend({
     AppFooter: () => import('../components/AppFooter.vue'),
   },
 
+  head: {
+    titleTemplate: (title) =>
+      ((title && title + ' - ') || '') + "Peterson's Fresh Market",
+  },
+
   data: () => ({
     loadingFont: false,
   }),

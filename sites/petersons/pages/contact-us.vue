@@ -11,7 +11,7 @@
 <script lang="ts">
 export default {
   head: {
-    title: "Peterson's Fresh Market - Contact Us",
+    title: 'Contact Us',
   },
 }
 </script>
