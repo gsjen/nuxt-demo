@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: curl -X PATCH \
-        -H 'Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}' \ 
+        -H 'Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}' \
         -d '{ "build_settings": { "stop_builds": false } }' \
         https://api.netlify.com/api/v1/sites/773a841f-8447-44b1-8ed7-3c97832501f4
 
