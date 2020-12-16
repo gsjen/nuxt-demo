@@ -4,6 +4,7 @@ on:
     branches: [master]
     paths:
       - 'sites/petersons/**'
+      - '!**/static/**/*.@(png|jpg|pdf)'
   workflow_dispatch:
 
 jobs:
@@ -37,4 +38,4 @@ jobs:
           alias: 'staging'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: '02af7f7f-cdff-4797-9c6d-7dfabd4f3fd5'
+          NETLIFY_SITE_ID: '5cc33f06-b61f-4857-b81c-b4ba014af6cf'
