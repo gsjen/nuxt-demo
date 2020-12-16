@@ -17,11 +17,3 @@ jobs:
           -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}"
           -d '{ "build_settings": { "stop_builds": false } }'
           https://api.netlify.com/api/v1/sites/773a841f-8447-44b1-8ed7-3c97832501f4
-          
-      - run: curl -X POST -d {} https://api.netlify.com/build_hooks/5fd923adfb03ef0fdf3c0b64
-
-      - run: >
-          curl -X PATCH
-          -H 'Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}'
-          -d '{ "build_settings": { "stop_builds": true } }'
-          https://api.netlify.com/api/v1/sites/773a841f-8447-44b1-8ed7-3c97832501f4
