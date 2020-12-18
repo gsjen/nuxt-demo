@@ -2,14 +2,13 @@
   <v-app>
     <AppSystemBar></AppSystemBar>
 
-    <AppBar></AppBar>
+    <AppBar @show-drawer="showDrawer = true"></AppBar>
+
+    <AppNavDrawer v-model="showDrawer"></AppNavDrawer>
 
     <AppView></AppView>
 
     <AppFooter></AppFooter>
-    <client-only>
-      <v-overlay color="tertiary" opacity="1" :value="loadingFont"></v-overlay>
-    </client-only>
   </v-app>
 </template>
 
@@ -24,21 +23,13 @@ export default Vue.extend({
     AppFooter: () => import('../components/AppFooter.vue'),
   },
 
+  data: () => ({
+    showDrawer: false,
+  }),
+
   head: {
     titleTemplate: (title) =>
       ((title && title + ' - ') || '') + "Peterson's Fresh Market",
-  },
-
-  data: () => ({
-    loadingFont: false,
-  }),
-
-  async created() {
-    // if (!process.server) {
-    //   this.loadingFont = true
-    //   await (this as any).$webfontloader.loading
-    //   this.loadingFont = false
-    // }
   },
 })
 </script>

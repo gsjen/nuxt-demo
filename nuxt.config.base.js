@@ -1,46 +1,30 @@
 const defu = require('defu')
 const path = require('path')
+const fs = require('fs')
 const _ = require('lodash')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
-module.exports = {
-  merge: (overrides) => defu(overrides, config),
-}
+const siteName = _.last(path.parse(__dirname).dir.split(path.sep))
 
 const config = {
-  // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
-  // Global page headers (https://go.nuxtjs.dev/config-head)
+  env: {
+    siteName: siteName,
+  },
+
   head: {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
-      },
-      {
-        rel: 'dns-prefetch',
-        href: 'https://fonts.googleapis.com',
-      },
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
-
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/../../shared/plugins/vuetify.ts'],
-
-  // Auto import components (https://go.nuxtjs.dev/config-components)
+  plugins: ['~/../../shared/plugins/media.ts'],
   components: true,
 
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
@@ -48,24 +32,15 @@ const config = {
     '@nuxtjs/stylelint-module',
   ],
 
-  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxt/content',
-    // '~/../../shared/modules/webfontloader',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
-  webfontloader: {
-    google: {
-      families: ['Roboto:100,300,400,500,700,900&display=block'],
-    },
-  },
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     transpile: ['vuetify/lib'],
     extend(config, { loaders: { sass, scss } }) {
@@ -77,6 +52,24 @@ const config = {
     extractCSS: process.env.NODE_ENV === 'production',
   },
 
+  hooks: {
+    build: {
+      done(builder) {
+        if (
+          // process.env.GITHUB_REF &&
+          // process.env.GITHUB_REF !== 'refs/heads/master'
+          true
+        ) {
+          const robotsPath = path.join(
+            builder.nuxt.options.buildDir,
+            'robots.txt'
+          )
+          fs.writeFileSync(robotsPath, 'User-agent: * Disallow: /')
+        }
+      },
+    },
+  },
+
   generate: {
     fallback: '404.html',
   },
@@ -84,8 +77,43 @@ const config = {
   static: {
     cacheDir: path.resolve(
       process.cwd(),
-      '../../node_modules/.cache/nuxt/' +
-        _.last(path.parse(__dirname).dir.split(path.sep))
+      '../../node_modules/.cache/nuxt/' + siteName
     ),
   },
+}
+
+module.exports = {
+  merge: (overrides) => defu(overrides, config, getfontConfig(overrides)),
+}
+
+function getfontConfig(overrides) {
+  const fonts = overrides.fonts || ['Roboto:wght@100;300;400;500;700;900']
+  if (fonts.length === 0) {
+    return {}
+  }
+
+  let href = 'https://fonts.googleapis.com/css2?'
+  for (let font of fonts) {
+    href += `family=${font}&`
+  }
+  href += 'display=swap'
+
+  return {
+    head: {
+      link: [
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+        },
+        {
+          rel: 'dns-prefetch',
+          href: 'https://fonts.googleapis.com',
+        },
+        {
+          rel: 'stylesheet',
+          href,
+        },
+      ],
+    },
+  }
 }

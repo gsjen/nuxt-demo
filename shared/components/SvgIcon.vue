@@ -69,6 +69,9 @@ export default Vue.extend({
     icon: Object as PropType<SvgIconDefinition>,
   },
   render(h): VNode {
+    if (!this.icon) {
+      throw new Error('Required property "icon" missing.')
+    }
     const name = this.icon.name
     if (!this.$vuetify.icons.values[name]) {
       this.$vuetify.icons.values[name] = {
