@@ -29,12 +29,12 @@ jobs:
       - run: npm ci
 
       - working-directory: sites/petersons
-        run: npm run generate --fail-on-error
+        run: GITHUB_REF=$GITHUB_REF npm run generate --fail-on-error
 
       - uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: 'sites/petersons/dist'
-          production-deploy: ${{ github.ref == 'refs/heads/master' }}
+          production-deploy: ${{ $GITHUB_REF == 'refs/heads/master' }}
           alias: 'staging'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
