@@ -34,7 +34,7 @@ jobs:
       - uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: 'sites/petersons/dist'
-          production-deploy: ${{ $GITHUB_REF == 'refs/heads/master' }}
+          production-deploy: ${{ github.ref == 'refs/heads/master' }}
           alias: 'staging'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
