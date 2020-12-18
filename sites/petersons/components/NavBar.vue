@@ -3,7 +3,13 @@
     <template v-for="(item, i) in menu">
       <v-menu v-if="item.children" v-bind="menuProps" :key="i">
         <template v-slot:activator="{ on, attrs }">
-          <NavBtn menu large v-bind="merge({}, attrs, item.props)" v-on="on">
+          <NavBtn
+            menu
+            :large="$vuetify.breakpoint.lgAndUp"
+            text
+            v-bind="merge({}, attrs, item.props)"
+            v-on="on"
+          >
             {{ item.label }}
             <v-icon>{{ menuIcon }}</v-icon>
           </NavBtn>
@@ -18,9 +24,15 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <NavBtn v-else :key="i" menu large v-bind="item.props">{{
-        item.label
-      }}</NavBtn>
+      <NavBtn
+        v-else
+        :key="i"
+        menu
+        :large="$vuetify.breakpoint.lgAndUp"
+        text
+        v-bind="item.props"
+        >{{ item.label }}</NavBtn
+      >
     </template>
   </v-toolbar>
 </template>
@@ -31,7 +43,7 @@ import { merge } from 'lodash'
 
 export default {
   props: {
-    height: String,
+    height: [String, Number],
   },
   data: () => ({
     menu: [
@@ -176,12 +188,16 @@ export default {
 
 <style lang="scss">
 .nav-bar {
+  // workaround for https://github.com/vuetifyjs/vuetify/issues/12161
+  .v-menu:not(:empty) {
+    display: block;
+  }
+
   .v-btn {
     background-color: var(--v-primary-base);
   }
 
   .v-list .v-list-item--link:hover {
-    // background-color: var(--v-primary-base);
     color: var(--v-secondary-base) !important;
   }
 }

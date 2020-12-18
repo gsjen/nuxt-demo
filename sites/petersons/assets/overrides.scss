@@ -1,3 +1,14 @@
+@import '~vuetify/src/styles/styles.sass';
+
+#__nuxt {
+  will-change: opacity;
+  transition: opacity map-get($transition, 'ease-in-out') 0.2s;
+
+  &[data-server-rendered] {
+    opacity: 0;
+  }
+}
+
 .v-icon__component {
   padding: 1px;
 }

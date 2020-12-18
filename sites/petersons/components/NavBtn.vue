@@ -6,7 +6,6 @@
     v-on="$listeners"
     :ripple="false"
     tile
-    text
   >
     <slot></slot>
   </v-btn>
@@ -25,11 +24,15 @@ export default {
 
 <style lang="scss">
 .nav-btn {
-  &:hover {
+  &.v-btn--text:hover {
     color: var(--v-primary-base) !important;
   }
 
-  &.theme--dark:hover::before {
+  &:not(:hover)::before {
+    opacity: 0 !important;
+  }
+
+  &.v-btn--text:hover::before {
     opacity: 0;
   }
 
