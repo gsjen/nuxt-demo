@@ -4,7 +4,7 @@ const fs = require('fs')
 const _ = require('lodash')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
-const siteName = _.last(path.parse(__dirname).dir.split(path.sep))
+const siteName = _.last(path.parse(process.cwd()).dir.split(path.sep))
 
 const config = {
   target: 'static',
