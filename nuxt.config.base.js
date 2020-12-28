@@ -11,6 +11,7 @@ const config = {
 
   env: {
     siteName: siteName,
+    mediaUrl: 'https://afswebsites-media.netlify.app',
   },
 
   head: {
