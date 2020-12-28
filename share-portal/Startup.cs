@@ -16,7 +16,7 @@ namespace SharePortal
 {
   public class Startup
   {
-    public static IConfiguration Configuration { get; }
+    public IConfiguration Configuration { get; }
 
     public static void Main(string[] args)
     {
@@ -35,8 +35,6 @@ namespace SharePortal
     {
       Configuration = configuration;
     }
-
-
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
