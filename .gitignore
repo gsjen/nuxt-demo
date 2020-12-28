@@ -19,15 +19,6 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# nyc test coverage
-.nyc_output
-
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-# Bower dependency directory (https://bower.io/)
-bower_components
-
 # node-waf configuration
 .lock-wscript
 
@@ -62,23 +53,14 @@ typings/
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
-# next.js build output
-.next
-
 # nuxt.js build output
 .nuxt
 
 # Nuxt generate
 dist
 
-# vuepress build output
-.vuepress/dist
-
 # Serverless directories
 .serverless
-
-# IDE / Editor
-.idea
 
 # Service worker
 sw.*
@@ -86,8 +68,9 @@ sw.*
 # macOS
 .DS_Store
 
-# Vim swap files
-*.swp
-
 # Local Netlify folder
 .netlify
+
+# dotnet folders
+obj
+share-portal/bin
