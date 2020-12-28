@@ -12,7 +12,7 @@
     <v-container fill-height>
       <nuxt-link to="/">
         <v-img
-          :src="$media(`images/logo.png?nf_resize=fit&w=${imageSize}`)"
+          :src="$media(`/images/logo.png?nf_resize=fit&w=${imageSize}`)"
           contain
           :max-width="imageSize"
         ></v-img>

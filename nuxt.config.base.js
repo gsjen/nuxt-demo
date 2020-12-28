@@ -4,7 +4,7 @@ const fs = require('fs')
 const _ = require('lodash')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
-const siteName = _.last(path.parse(process.cwd()).dir.split(path.sep))
+const siteName = _.last(process.cwd().split(path.sep))
 
 const config = {
   target: 'static',
@@ -45,26 +45,33 @@ const config = {
     transpile: ['vuetify/lib'],
     extend(config, { loaders: { sass, scss } }) {
       config.resolve.alias['shared'] = path.resolve(__dirname, 'shared')
+
       config.plugins.push(new VuetifyLoaderPlugin())
+
       sass.additionalData = '@import "~/assets/variables.scss"'
       scss.additionalData = '@import "~/assets/variables.scss";'
+
+      const jsRule = _.find(config.module.rules, { test: /\.m?jsx?$/i })
+      const _exclude = jsRule.exclude
+      jsRule.exclude = (file) =>
+        _exclude(file) ||
+        path.dirname(file) === path.resolve(__dirname, 'shared/assets/icons')
     },
     extractCSS: process.env.NODE_ENV === 'production',
   },
 
   hooks: {
-    build: {
-      done(builder) {
+    generate: {
+      done(generator) {
         if (
           // process.env.GITHUB_REF &&
           // process.env.GITHUB_REF !== 'refs/heads/master'
           true
         ) {
-          const robotsPath = path.join(
-            builder.nuxt.options.buildDir,
-            'robots.txt'
+          fs.writeFileSync(
+            path.join(generator.distPath, 'robots.txt'),
+            'User-agent: * Disallow: /'
           )
-          fs.writeFileSync(robotsPath, 'User-agent: * Disallow: /')
         }
       },
     },
