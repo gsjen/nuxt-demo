@@ -27,7 +27,8 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/share-portal
+        working-directory: share-portal
+        run: dotnet publish -c Release -o bin/publish
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
@@ -35,4 +36,4 @@ jobs:
           app-name: 'shareportalapp'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_7a5f1423302b4fd1a84be2d8987841f7 }}
-          package: ${{env.DOTNET_ROOT}}/share-portal
+          package: share-portal/bin/publish
