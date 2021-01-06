@@ -29,7 +29,7 @@
         "preLaunchTask": "build",
         "program": "${workspaceFolder}/share-portal/bin/net5.0/SharePortal.dll",
         "args": [],
-        "cwd": "${workspaceFolder}",
+        "cwd": "${workspaceFolder}/share-portal",
         "stopAtEntry": false,
         "serverReadyAction": {
           "action": "openExternally",
