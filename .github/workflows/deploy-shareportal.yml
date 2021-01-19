@@ -22,10 +22,7 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '5.0.x'
-
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
-
+      
       - name: dotnet publish
         working-directory: share-portal
         run: dotnet publish -c Release -o bin/publish
