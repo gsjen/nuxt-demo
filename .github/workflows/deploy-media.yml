@@ -2,11 +2,11 @@ name: Deploy Media to Netlify
 on:
   push:
     branches: [master]
-    paths: |
-      content/*/media/**/*.png
-      content/*/media/**/*.jpg
-      content/*/media/**/*.jpeg
-      content/*/media/**/*.pdf
+    paths:
+      - 'content/*/media/**/*.png'
+      - 'content/*/media/**/*.jpg'
+      - 'content/*/media/**/*.jpeg'
+      - 'content/*/media/**/*.pdf'
   workflow_dispatch:
 
 jobs:
