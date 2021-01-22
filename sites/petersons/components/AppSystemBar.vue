@@ -1,21 +1,15 @@
 <template>
-  <v-system-bar
-    app
-    absolute
-    dark
-    color="tertiary"
-    :height="$vuetify.breakpoint.xs ? 30 : 40"
-  >
+  <v-system-bar id="app-system-bar" app absolute dark color="tertiary">
     <v-container d-sm-flex hidden-xs-only>
       <v-spacer></v-spacer>
-      <NavBtn text class="white--text">
+      <nav-btn text class="white--text">
         <svg-icon :icon="userIcon"></svg-icon>
         Log In
-      </NavBtn>
-      <NavBtn text class="white--text">
+      </nav-btn>
+      <nav-btn text class="white--text">
         <svg-icon :icon="registerIcon"></svg-icon>
         Register
-      </NavBtn>
+      </nav-btn>
     </v-container>
   </v-system-bar>
 </template>
@@ -32,3 +26,19 @@ export default {
   }),
 }
 </script>
+
+<style lang="scss">
+@import '~vuetify/src/styles/styles.sass';
+@import '~vuetify/src/components/VMain/_variables.scss';
+
+#app-system-bar {
+  transition: $main-transition;
+  height: 40px !important;
+}
+
+@media #{map-get($display-breakpoints, 'xs-only')} {
+  #app-system-bar {
+    height: 30px !important;
+  }
+}
+</style>

@@ -21,7 +21,7 @@ const glob = require('glob')
       const dirs = parts.dir.split('/')
       const dest = dirs.reduce((r, v, i) => {
         if (i !== 0 && i !== 2) {
-          if (!(i === 1 && v === '$shared')) {
+          if (!(i === 1 && v === '_shared')) {
             r.push(v)
           }
         }

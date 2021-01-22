@@ -3,17 +3,17 @@ import Vue, { VNode, VNodeData, PropType } from 'vue'
 import { Context } from '@nuxt/types'
 import { VIcon } from 'vuetify/lib'
 
-declare interface SvgPath {
+interface SvgPath {
   d: string
 }
 
-declare interface SvgCircle {
+interface SvgCircle {
   cx: string
   cy: string
   r: string
 }
 
-declare interface SvgIconDefinition {
+interface SvgIconDefinition {
   name: string
   xmlns: string
   viewBox: string

@@ -2,6 +2,9 @@ const base = require('../../nuxt.config.base.js')
 
 module.exports = base.merge({
   vuetify: {
+    icons: {
+      iconfont: 'mdiSvg',
+    },
     theme: {
       themes: {
         light: {
@@ -23,5 +26,7 @@ module.exports = base.merge({
     'Cairo:wght@200;300;400;600;700;900',
     'Playfair+Display:ital,wght@1,700',
   ],
-  modules: ['~/../../shared/modules/vuetify.js'],
+  modules: ['~/../_shared/modules/vuetify.js'],
+  loading: false,
+  plugins: [{ src: '~/../_shared/plugins/dateFilter.ts', mode: 'client' }],
 })

@@ -8,14 +8,24 @@
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
     "noEmit": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "shared/*": ["sites/_shared/*"]
     },
-    "types": ["@types/node", "@types/webpack-env", "@nuxt/types", "vuetify"]
+    "types": [
+      "@types/node",
+      "@types/webpack-env",
+      "@nuxt/types",
+      "@nuxt/content",
+      "@nuxtjs/axios",
+      "vuetify"
+    ]
   },
   "exclude": ["node_modules", ".nuxt", "dist", "*.template.ts"]
 }

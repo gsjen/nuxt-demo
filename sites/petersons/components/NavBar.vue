@@ -1,18 +1,12 @@
 <template>
-  <v-toolbar class="nav-bar" dense flat dark color="primary" :height="height">
+  <v-toolbar class="nav-bar" dense flat dark color="primary">
     <template v-for="(item, i) in menu">
       <v-menu v-if="item.children" v-bind="menuProps" :key="i">
         <template v-slot:activator="{ on, attrs }">
-          <NavBtn
-            menu
-            :large="$vuetify.breakpoint.lgAndUp"
-            text
-            v-bind="merge({}, attrs, item.props)"
-            v-on="on"
-          >
+          <nav-btn menu text v-bind="merge({}, attrs, item.props)" v-on="on">
             {{ item.label }}
             <v-icon>{{ menuIcon }}</v-icon>
-          </NavBtn>
+          </nav-btn>
         </template>
         <v-list>
           <v-list-item
@@ -24,152 +18,21 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <NavBtn
-        v-else
-        :key="i"
-        menu
-        :large="$vuetify.breakpoint.lgAndUp"
-        text
-        v-bind="item.props"
-        >{{ item.label }}</NavBtn
-      >
+      <NavBtn v-else :key="i" menu text v-bind="item.props">{{
+        item.label
+      }}</NavBtn>
     </template>
   </v-toolbar>
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import { mdiMenuDown } from '@mdi/js'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
-export default {
-  props: {
-    height: [String, Number],
-  },
+export default Vue.extend({
   data: () => ({
-    menu: [
-      {
-        label: 'Savings',
-        children: [
-          {
-            label: 'Weekly Ad',
-            props: {
-              to: '/weekly-ad',
-              nuxt: true,
-            },
-          },
-          {
-            label: 'Ways to Save',
-          },
-          {
-            label: 'Save Time. Shop Online.',
-          },
-          {
-            label: 'Exclusive Brands',
-          },
-        ],
-      },
-      {
-        label: 'Shop Online',
-        props: {
-          to: '/personal-shopper',
-          nuxt: true,
-        },
-      },
-      {
-        label: 'Plus',
-        props: {
-          to: '/plus',
-          nuxt: true,
-        },
-      },
-      {
-        label: 'Digital Coupons',
-        props: {
-          to: '/coupons',
-          nuxt: true,
-        },
-      },
-      {
-        label: 'Departments',
-        props: {
-          to: 'departments',
-          nuxt: true,
-        },
-        children: [
-          {
-            label: 'Personal Shopper',
-          },
-          {
-            label: 'Produce',
-          },
-          {
-            label: 'Meat',
-          },
-          {
-            label: 'Bakery',
-          },
-          {
-            label: 'Deli',
-          },
-          {
-            label: 'Compounding Pharmacy',
-          },
-          {
-            label: 'Signature Items',
-          },
-          {
-            label: 'Gift Cards',
-          },
-        ],
-      },
-      {
-        label: 'In Store',
-        children: [
-          {
-            label: 'Exclusive Brands',
-          },
-          {
-            label: "I'm a Local",
-          },
-          {
-            label: 'Facts Up Front',
-          },
-          {
-            label: 'Food Safety',
-          },
-          {
-            label: 'Gluten Free',
-          },
-          {
-            label: 'Healthy Attributes',
-          },
-        ],
-      },
-      {
-        label: 'About Us',
-        children: [
-          {
-            label: 'Employment',
-          },
-          {
-            label: 'Favorite Links',
-          },
-          {
-            label: 'Ask an Expert',
-          },
-          {
-            label: 'Our Team',
-          },
-        ],
-      },
-      {
-        label: 'Contact Us',
-        props: {
-          to: '/contact-us',
-          nuxt: true,
-        },
-      },
-    ],
+    menu: [] as any[],
     menuIcon: mdiMenuDown,
     menuProps: {
       eager: true,
@@ -180,14 +43,26 @@ export default {
       zIndex: -1,
     },
   }),
+  async fetch() {
+    const result = await this.$content('petersons/menus/main-menu').fetch()
+    if (!result) {
+      throw new Error('Required content "main-menu" not found.')
+    }
+    this.menu = (result as any).menu
+  },
   methods: {
     merge: merge,
   },
-}
+})
 </script>
 
 <style lang="scss">
+@import '~vuetify/src/styles/styles.sass';
+@import '~vuetify/src/components/VBtn/_variables.scss';
+
 .nav-bar {
+  height: 44px !important;
+
   // workaround for https://github.com/vuetifyjs/vuetify/issues/12161
   .v-menu:not(:empty) {
     display: block;
@@ -199,6 +74,25 @@ export default {
 
   .v-list .v-list-item--link:hover {
     color: var(--v-secondary-base) !important;
+  }
+}
+
+@media #{map-get($display-breakpoints, 'md-and-down')} {
+  .nav-bar {
+    height: 36px !important;
+  }
+}
+
+@media #{map-get($display-breakpoints, 'lg-and-up')} {
+  .nav-bar {
+    > .v-toolbar__content {
+      .nav-btn {
+        height: #{map-get($btn-sizes, 'large')}px;
+        min-width: #{round(map-get($btn-sizes, 'large') * 1.777777777777778)}px;
+        padding: 0 #{map-get($btn-sizes, 'large') / 2.25}px;
+        font-size: map-get($btn-font-sizes, 'large');
+      }
+    }
   }
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <v-layout column px-6>
+  <v-container pt-6 pb-0 px-6>
     <v-row>
       <v-col cols="8">
-        <section class="pt-3">
+        <section>
           <post-carousel></post-carousel>
         </section>
         <section class="py-3">
@@ -86,7 +86,7 @@
         </v-row>
       </v-col>
     </v-row>
-  </v-layout>
+  </v-container>
 </template>
 
 <script lang="ts">

@@ -1,0 +1,126 @@
+{
+  "menu": [
+    {
+      "label": "Savings",
+      "children": [
+        {
+          "label": "Weekly Ad",
+          "props": {
+            "to": "/weekly-ad",
+            "nuxt": true
+          }
+        },
+        {
+          "label": "Ways to Save"
+        },
+        {
+          "label": "Save Time. Shop Online."
+        },
+        {
+          "label": "Exclusive Brands"
+        }
+      ]
+    },
+    {
+      "label": "Shop Online",
+      "props": {
+        "to": "/personal-shopper",
+        "nuxt": true
+      }
+    },
+    {
+      "label": "Plus",
+      "props": {
+        "to": "/plus",
+        "nuxt": true
+      }
+    },
+    {
+      "label": "Digital Coupons",
+      "props": {
+        "to": "/coupons",
+        "nuxt": true
+      }
+    },
+    {
+      "label": "Departments",
+      "props": {
+        "to": "departments",
+        "nuxt": true
+      },
+      "children": [
+        {
+          "label": "Personal Shopper"
+        },
+        {
+          "label": "Produce"
+        },
+        {
+          "label": "Meat"
+        },
+        {
+          "label": "Bakery"
+        },
+        {
+          "label": "Deli"
+        },
+        {
+          "label": "Compounding Pharmacy"
+        },
+        {
+          "label": "Signature Items"
+        },
+        {
+          "label": "Gift Cards"
+        }
+      ]
+    },
+    {
+      "label": "In Store",
+      "children": [
+        {
+          "label": "Exclusive Brands"
+        },
+        {
+          "label": "I'm a Local"
+        },
+        {
+          "label": "Facts Up Front"
+        },
+        {
+          "label": "Food Safety"
+        },
+        {
+          "label": "Gluten Free"
+        },
+        {
+          "label": "Healthy Attributes"
+        }
+      ]
+    },
+    {
+      "label": "About Us",
+      "children": [
+        {
+          "label": "Employment"
+        },
+        {
+          "label": "Favorite Links"
+        },
+        {
+          "label": "Ask an Expert"
+        },
+        {
+          "label": "Our Team"
+        }
+      ]
+    },
+    {
+      "label": "Contact Us",
+      "props": {
+        "to": "/contact-us",
+        "nuxt": true
+      }
+    }
+  ]
+}

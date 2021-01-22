@@ -1,23 +1,28 @@
 @import '~vuetify/src/styles/styles.sass';
 
-#__nuxt {
-  will-change: opacity;
-  transition: opacity map-get($transition, 'ease-in-out') 0.2s;
-
-  &[data-server-rendered] {
-    opacity: 0;
-  }
+::selection {
+  color: white;
+  background-color: var(--v-primary-base);
 }
+
+// #__nuxt {
+//   will-change: opacity;
+//   transition: opacity map-get($transition, 'ease-in-out') 0.2s;
+
+//   &[data-server-rendered] {
+//     opacity: 0;
+//   }
+// }
 
 .v-icon__component {
   padding: 1px;
 }
 
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.1s;
-}
-.page-enter,
-.page-leave-active {
-  opacity: 0;
-}
+// .page-enter-active,
+// .page-leave-active {
+//   transition: opacity 0.1s;
+// }
+// .page-enter,
+// .page-leave-active {
+//   opacity: 0;
+// }

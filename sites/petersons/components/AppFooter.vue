@@ -1,56 +1,71 @@
 <template>
   <v-footer id="app-footer" app padless absolute color="transparent">
     <v-container class="py-0">
-      <v-card flat tile color="accent" class="text-center">
+      <v-card flat tile color="accent" class="text-center" v-if="facebookPage">
         <v-card-text>
-          <NavBtn
+          <nav-btn
             text
             large
             color="secondary"
             class="pa-0"
-            href="https://www.facebook.com/petersonsfreshmarket"
+            :href="`https://www.facebook.com/${facebookPage}`"
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer nofollow noopener external"
           >
             <svg-icon :icon="facebookIcon" large></svg-icon>
             <h3>Connect with us on Facebook</h3>
-          </NavBtn>
+          </nav-btn>
         </v-card-text>
       </v-card>
       <v-toolbar flat dense color="accent darken-1">
-        <span class="text-caption font-weight-medium pr-3"
-          >Copyright 2020. Design and Maintenance by Associated Food
-          Stores.</span
-        >
-        <v-divider vertical inset class="hidden-md-and-down"></v-divider>
-        <NavBtn text small class="hidden-md-and-down">Administration</NavBtn>
-        <v-divider vertical inset class="hidden-md-and-down"></v-divider>
-        <NavBtn text small class="hidden-md-and-down" to="/contact-us" nuxt
-          >Contact Us</NavBtn
-        >
-        <v-divider vertical inset class="hidden-md-and-down"></v-divider>
-        <NavBtn text small class="hidden-md-and-down" to="/recalls"
-          >Recalls</NavBtn
-        >
-        <v-divider vertical inset class="hidden-md-and-down"></v-divider>
-        <NavBtn text small class="hidden-md-and-down" to="/plus"
-          >Employee Rewards</NavBtn
-        >
+        <template v-for="(item, i) in menu">
+          <span
+            v-if="!item.to"
+            :key="i"
+            class="text-caption font-weight-medium"
+            :class="{ 'pr-3': i === 0, 'px-3': i !== 0 }"
+          >
+            {{ item.label }}
+          </span>
+          <nav-btn v-else :key="i" text small :to="item.to">{{
+            item.label
+          }}</nav-btn>
+          <v-divider
+            v-if="i !== menu.length - 1"
+            vertical
+            inset
+            :key="-(i + 1)"
+          ></v-divider>
+        </template>
       </v-toolbar>
     </v-container>
   </v-footer>
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import SvgIcon from 'shared/components/SvgIcon.vue'
 import { bxlFacebook } from 'shared/assets/icons/box-icons'
 
-export default {
+export default Vue.extend({
   components: { SvgIcon },
   data: () => ({
+    menu: [] as any[],
+    facebookPage: '',
     facebookIcon: bxlFacebook,
   }),
-}
+  async fetch() {
+    const storeInfo = await this.$content('petersons/store-information').fetch()
+    if (storeInfo) {
+      this.facebookPage = storeInfo['facebookPage']
+    }
+    const result = await this.$content('petersons/menus/footer').fetch()
+    if (!result) {
+      throw new Error('Required content "footer menu" not found.')
+    }
+    this.menu = (result as any).menu
+  },
+})
 </script>
 
 <style lang="scss">

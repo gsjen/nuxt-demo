@@ -1,0 +1,23 @@
+{
+  "menu": [
+    {
+      "label": "Copyright 2021. Design and Maintenance by Associated Food Stores."
+    },
+    {
+      "label": "Administration",
+      "to": "/admin"
+    },
+    {
+      "label": "Contact Us",
+      "to": "/contact-us"
+    },
+    {
+      "label": "Recalls",
+      "to": "/recalls"
+    },
+    {
+      "label": "Employee Rewards",
+      "to": "/plus"
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 import { Context } from '@nuxt/types'
 import Vue from 'vue'
-//@ts-expect-error
 import Vuetify from 'vuetify/lib/framework'
 
 Vue.use(Vuetify)
@@ -10,7 +9,7 @@ const config: UserVuetifyPreset = <%= serialize(options) %> ;
 
 export default (ctx: Context & { $vuetify: any }) => {
   const vuetify = new Vuetify(config)
-  vuetify.framework.icons.values = {}
+  // vuetify.framework.icons.values = {}
   ctx.app.vuetify = vuetify
   ctx.$vuetify = vuetify.framework
   const overrides = require.context('~/assets', false, /^\.\/overrides\.scss$/)
