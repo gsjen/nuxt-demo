@@ -140,10 +140,7 @@ const config = {
   },
 
   static: {
-    cacheDir: path.resolve(
-      process.cwd(),
-      '../../node_modules/.cache/nuxt/' + sitePath
-    ),
+    cacheDir: path.join(__dirname, 'node_modules/.cache/nuxt/' + sitePath),
   },
 }
 
