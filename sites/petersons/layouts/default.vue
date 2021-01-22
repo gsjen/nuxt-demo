@@ -76,7 +76,7 @@ export default Vue.extend({
 
     this.showBanner = !!this.banner
   },
-  fetchOnServer: false,
+  //fetchOnServer: false,
 })
 </script>
 
