@@ -1,5 +1,7 @@
 <template>
-  <v-app>
+  <v-app :class="{ '--show-banner': showBanner }">
+    <AppBanner @input="showBanner = $event"></AppBanner>
+
     <AppSystemBar></AppSystemBar>
 
     <AppBar @show-drawer="showDrawer = true"></AppBar>
@@ -17,6 +19,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   components: {
+    AppBanner: () => import('../components/AppBanner.vue'),
     AppSystemBar: () => import('../components/AppSystemBar.vue'),
     AppBar: () => import('../components/AppBar.vue'),
     AppView: () => import('../components/AppView.vue'),
@@ -24,6 +27,7 @@ export default Vue.extend({
   },
 
   data: () => ({
+    showBanner: false,
     showDrawer: false,
   }),
 
@@ -33,3 +37,32 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss">
+@import '~vuetify/src/styles/styles.sass';
+@import 'assets/variables.scss';
+
+#app {
+  &.--show-banner {
+    #app-system-bar {
+      top: $app-banner-height;
+    }
+    #app-bar {
+      top: $app-banner-height;
+    }
+  }
+}
+
+@media #{map-get($display-breakpoints, 'md-and-down')} {
+  #app {
+    &.--show-banner {
+      #app-system-bar {
+        top: $app-banner-mobile-height;
+      }
+      #app-bar {
+        top: $app-banner-mobile-height;
+      }
+    }
+  }
+}
+</style>
