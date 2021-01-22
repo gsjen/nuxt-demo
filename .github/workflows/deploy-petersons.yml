@@ -18,7 +18,7 @@ jobs:
         with:
           path: |
             ~/.npm
-            node_modules/.cache
+            node_modules/.cache/nuxt/petersons/**/*.*
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json', 'node_modules/.cache/nuxt/petersons/**/*.*') }}
           restore-keys: |
             ${{ runner.os }}-node-
