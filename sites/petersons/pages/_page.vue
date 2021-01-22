@@ -62,6 +62,7 @@ export default Vue.extend({
 <style lang="scss">
 @import '~vuetify/src/styles/styles.sass';
 .page {
+  > .nuxt-content,
   > .nuxt-content-container > .nuxt-content {
     > h1 {
       font-size: map-deep-get($headings, 'h4', 'size') !important;

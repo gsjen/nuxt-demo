@@ -1,6 +1,6 @@
 <template>
   <v-app :class="{ '--show-banner': showBanner }">
-    <AppBanner @input="showBanner = $event"></AppBanner>
+    <AppBanner :banner="banner" v-model="showBanner"></AppBanner>
 
     <AppSystemBar></AppSystemBar>
 
@@ -25,8 +25,8 @@ export default Vue.extend({
     AppView: () => import('../components/AppView.vue'),
     AppFooter: () => import('../components/AppFooter.vue'),
   },
-
   data: () => ({
+    banner: null,
     showBanner: false,
     showDrawer: false,
   }),
@@ -35,6 +35,45 @@ export default Vue.extend({
     titleTemplate: (title) =>
       ((title && title + ' - ') || '') + "Peterson's Fresh Market",
   },
+
+  async fetch() {
+    try {
+      this.banner =
+        (
+          await this.$content('petersons/posts/banners')
+            .where({
+              startDate: {
+                $lte: new Date().valueOf(),
+              },
+              endDate: {
+                $gte: new Date().valueOf(),
+              },
+            })
+            .sortBy('startDate')
+            .limit(1)
+            .fetch()
+        )[0] || null
+    } catch {
+      this.banner =
+        (
+          await this.$content('_shared/posts/banners')
+            .where({
+              startDate: {
+                $lte: new Date().valueOf(),
+              },
+              endDate: {
+                $gte: new Date().valueOf(),
+              },
+            })
+            .sortBy('startDate')
+            .limit(1)
+            .fetch()
+        )[0] || null
+    }
+
+    this.showBanner = !!this.banner
+  },
+  fetchOnServer: false,
 })
 </script>
 

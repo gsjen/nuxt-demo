@@ -1,14 +1,14 @@
 <template>
   <v-banner
     id="app-banner"
-    :color="post && post.color"
-    :dark="post && post.dark"
+    :color="banner && banner.color"
+    :dark="banner && banner.dark"
     sticky
     single-line
     class="text-lg-center"
     :value="value"
   >
-    <nuxt-content :document="post"></nuxt-content>
+    <nuxt-content :document="banner"></nuxt-content>
     <template v-slot:actions>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
@@ -25,56 +25,19 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
+import { IContentDocument } from '@nuxt/content/types/content'
 
 export default Vue.extend({
-  data: () => ({
-    post: null,
-    value: false,
-  }),
+  props: {
+    banner: null as PropType<IContentDocument>,
+    value: Boolean,
+  },
   methods: {
     close() {
-      this.$emit('input', (this.value = false))
+      this.$emit('input', false)
     },
   },
-  async fetch() {
-    try {
-      this.post =
-        (
-          await this.$content('petersons/posts/banners')
-            .where({
-              startDate: {
-                $lte: new Date().valueOf(),
-              },
-              endDate: {
-                $gte: new Date().valueOf(),
-              },
-            })
-            .sortBy('startDate')
-            .limit(1)
-            .fetch()
-        )[0] || null
-    } catch {
-      this.post =
-        (
-          await this.$content('_shared/posts/banners')
-            .where({
-              startDate: {
-                $lte: new Date().valueOf(),
-              },
-              endDate: {
-                $gte: new Date().valueOf(),
-              },
-            })
-            .sortBy('startDate')
-            .limit(1)
-            .fetch()
-        )[0] || null
-    }
-
-    this.$emit('input', (this.value = !!this.post))
-  },
-  fetchOnServer: false,
 })
 </script>
 
