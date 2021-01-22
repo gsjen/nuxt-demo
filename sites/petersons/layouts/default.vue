@@ -37,16 +37,19 @@ export default Vue.extend({
   },
 
   async fetch() {
+    const now = this.$nuxt.context.isDev
+      ? new Date().valueOf()
+      : new Date().toJSON()
     try {
       this.banner =
         (
           await this.$content('petersons/posts/banners')
             .where({
               startDate: {
-                $lte: new Date().valueOf(),
+                $lte: now,
               },
               endDate: {
-                $gte: new Date().valueOf(),
+                $gte: now,
               },
             })
             .sortBy('startDate')
@@ -59,10 +62,10 @@ export default Vue.extend({
           await this.$content('_shared/posts/banners')
             .where({
               startDate: {
-                $lte: new Date().valueOf(),
+                $lte: now,
               },
               endDate: {
-                $gte: new Date().valueOf(),
+                $gte: now,
               },
             })
             .sortBy('startDate')
