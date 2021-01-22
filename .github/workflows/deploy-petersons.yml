@@ -17,8 +17,8 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: |
-            node_modules/.cache/nuxt/petersons/**/*.*
-          key: ${{ runner.os }}-node-${{ hashFiles('node_modules/.cache/nuxt/petersons/**/*.*') }}
+            node_modules/.cache/nuxt/petersons
+          key: ${{ runner.os }}-node-${{ hashFiles('sites/petersons/**/*.*') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
