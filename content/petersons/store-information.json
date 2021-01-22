@@ -1,0 +1,49 @@
+{
+  "facebookPage": "petersonsfreshmarket",
+  "locations": [
+    {
+      "name": "Riverton",
+      "phoneNumber": "801-254-0761",
+      "faxNumber": "801-446-7832",
+      "pharmacyPhoneNumber": "801-254-0809",
+      "storeHours": [
+        {
+          "Day": "Mon-Sat",
+          "Hours": "6:00 AM to 11:00 PM"
+        },
+        {
+          "Day": "Sunday",
+          "Hours": "Closed"
+        }
+      ],
+      "pharmacyHours": [
+        {
+          "Day": "Mon-Fri",
+          "Hours": "9:00 AM to 9:00 PM"
+        },
+        {
+          "Day": "Saturday",
+          "Hours": "9:00 AM to 7:00 PM"
+        },
+        {
+          "Day": "Sunday",
+          "Hours": "Closed"
+        }
+      ],
+      "seniorShoppingHours": [
+        {
+          "Day": "Monday",
+          "Hours": "7:00 AM to 8:00 AM"
+        },
+        {
+          "Day": "Wednesday",
+          "Hours": "7:00 AM to 8:00 AM"
+        },
+        {
+          "Day": "Friday",
+          "Hours": "7:00 AM to 8:00 AM"
+        }
+      ]
+    }
+  ]
+}
