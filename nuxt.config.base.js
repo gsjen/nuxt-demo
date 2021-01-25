@@ -149,37 +149,5 @@ const config = {
 }
 
 module.exports = {
-  merge: (overrides) => defu(overrides, config, getfontConfig(overrides)),
-}
-
-function getfontConfig(overrides) {
-  const fonts = overrides.fonts || ['Roboto:wght@100;300;400;500;700;900']
-  if (fonts.length === 0) {
-    return {}
-  }
-
-  let href = 'https://fonts.googleapis.com/css2?'
-  for (let font of fonts) {
-    href += `family=${font}&`
-  }
-  href += 'display=swap'
-
-  return {
-    head: {
-      link: [
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-        },
-        {
-          rel: 'dns-prefetch',
-          href: 'https://fonts.googleapis.com',
-        },
-        {
-          rel: 'stylesheet',
-          href,
-        },
-      ],
-    },
-  }
+  merge: (overrides) => defu(overrides, config),
 }

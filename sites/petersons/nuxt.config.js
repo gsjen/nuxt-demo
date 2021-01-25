@@ -22,10 +22,6 @@ module.exports = base.merge({
       },
     },
   },
-  fonts: [
-    'Cairo:wght@200;300;400;600;700;900',
-    'Playfair+Display:ital,wght@1,700',
-  ],
   modules: ['~/../_shared/modules/vuetify.js'],
   loading: false,
   plugins: [{ src: '~/../_shared/plugins/dateFilter.ts', mode: 'client' }],
