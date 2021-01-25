@@ -140,7 +140,11 @@ const config = {
   },
 
   static: {
-    cacheDir: path.join(__dirname, 'node_modules/.cache/nuxt/' + sitePath),
+    cacheDir: path.join(
+      __dirname,
+      process.env.CI ? '.cache/nuxt' : 'node_modules/.cache/nuxt',
+      sitePath
+    ),
   },
 }
 

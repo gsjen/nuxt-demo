@@ -18,7 +18,7 @@ jobs:
         with:
           path: |
             ~/.npm
-            node_modules/.cache/nuxt/petersons
+            .cache/nuxt/petersons
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
@@ -30,7 +30,7 @@ jobs:
       - run: npm ci
 
       - working-directory: sites/petersons
-        run: npm run generate --fail-on-error --verbose
+        run: GITHUB_REF=$GITHUB_REF CI=1 npm run generate --fail-on-error
 
       - uses: nwtgck/actions-netlify@v1.1
         with:
