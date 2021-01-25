@@ -37,9 +37,7 @@ export default Vue.extend({
   },
 
   async fetch() {
-    const now = this.$nuxt.context.isDev
-      ? new Date().valueOf()
-      : new Date().toJSON()
+    const now = process.server ? new Date().valueOf() : new Date().toJSON()
     try {
       this.banner =
         (
