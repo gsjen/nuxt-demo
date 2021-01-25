@@ -30,7 +30,7 @@ jobs:
       - run: npm ci
 
       - working-directory: sites/petersons
-        run: npm run generate --fail-on-error
+        run: npm run generate --fail-on-error --verbose
 
       - uses: nwtgck/actions-netlify@v1.1
         with:
