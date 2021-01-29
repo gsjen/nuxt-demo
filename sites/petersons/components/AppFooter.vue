@@ -1,5 +1,5 @@
 <template>
-  <v-footer id="app-footer" app padless absolute color="transparent">
+  <v-footer id="app-footer" padless color="transparent">
     <v-container class="py-0">
       <v-card flat tile color="accent" class="text-center" v-if="facebookPage">
         <v-card-text>
@@ -17,27 +17,37 @@
           </nav-btn>
         </v-card-text>
       </v-card>
-      <v-toolbar flat dense color="accent darken-1">
+      <v-row
+        justify="center"
+        align="center"
+        no-gutters
+        class="accent darken-1 py-2 py-md-3"
+      >
         <template v-for="(item, i) in menu">
           <span
             v-if="!item.to"
             :key="i"
-            class="text-caption font-weight-medium"
-            :class="{ 'pr-3': i === 0, 'px-3': i !== 0 }"
+            class="text-caption font-weight-medium my-2 my-md-0"
+            :class="{ 'pr-md-3': i === 0, 'px-md-3': i !== 0 }"
           >
             {{ item.label }}
           </span>
-          <nav-btn v-else :key="i" text small :to="item.to">{{
-            item.label
-          }}</nav-btn>
+          <nav-btn
+            v-else
+            :key="i"
+            text
+            small
+            :to="item.to"
+            class="my-1 my-md-0"
+            >{{ item.label }}</nav-btn
+          >
           <v-divider
             v-if="i !== menu.length - 1"
             vertical
-            inset
             :key="-(i + 1)"
           ></v-divider>
         </template>
-      </v-toolbar>
+      </v-row>
     </v-container>
   </v-footer>
 </template>
@@ -72,11 +82,8 @@ export default Vue.extend({
 @import '~vuetify/src/styles/styles.sass';
 
 #app-footer {
-  .v-toolbar__content {
-    justify-content: center;
-    .text-caption {
-      margin-top: 1px;
-    }
+  .row > .text-caption {
+    border-top: 1px solid transparent;
   }
 }
 
@@ -88,6 +95,10 @@ export default Vue.extend({
 
       .v-card__text {
         padding: 0;
+      }
+
+      .row {
+        flex-direction: column-reverse;
       }
     }
   }

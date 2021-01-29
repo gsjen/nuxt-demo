@@ -18,9 +18,9 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <NavBtn v-else :key="i" menu text v-bind="item.props">{{
+      <nav-btn v-else :key="i" menu text v-bind="item.props">{{
         item.label
-      }}</NavBtn>
+      }}</nav-btn>
     </template>
   </v-toolbar>
 </template>
@@ -45,9 +45,6 @@ export default Vue.extend({
   }),
   async fetch() {
     const result = await this.$content('petersons/menus/main-menu').fetch()
-    if (!result) {
-      throw new Error('Required content "main-menu" not found.')
-    }
     this.menu = (result as any).menu
   },
   methods: {

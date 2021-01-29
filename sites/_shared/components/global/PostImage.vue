@@ -4,6 +4,7 @@
     v-bind="$attrs"
     :max-width="maxWidth"
     :max-height="maxHeight"
+    contain
   ></v-img>
 </template>
 

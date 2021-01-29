@@ -4,6 +4,13 @@ $body-font-family: 'Cairo', 'Trebuchet MS', sans-serif;
 
 $material-light: (
   'background': var(--v-tertiary-base),
+  'text': (
+    'primary': black,
+    'secondary': black,
+  ),
+  'icons': (
+    'active': black,
+  ),
 );
 
 $font-weights: (
@@ -11,13 +18,21 @@ $font-weights: (
 );
 $headings: (
   'h1': (
+    'size': 2.125rem,
     'weight': 700,
+    'line-height': 2.5rem,
+    'letter-spacing': 0.0073529412em,
   ),
   'h2': (
-    'weight': 700,
+    'size': 1.2rem,
+    'weight': 600,
+    'line-height': 2.25rem,
+    'letter-spacing': 0.03em,
   ),
   'h3': (
+    'size': 1.5rem,
     'weight': 700,
+    'line-height': 2rem,
   ),
   'h4': (
     'weight': 700,
@@ -41,7 +56,10 @@ $container-max-widths: (
 
 $border-radius-root: 0;
 
+$card-elevation: 0;
+
 $btn-text-transform: 'none';
+
 $btn-letter-spacing: 0;
 $btn-font-sizes: (
   (
@@ -54,6 +72,9 @@ $toolbar-content-padding-x: 0;
 $toolbar-content-padding-y: 0;
 
 $list-item-min-height: 36px;
+$list-group-no-action-item-padding: 36px;
+
+$pagination-navigation-disabled-opacity: 0.4;
 
 $app-banner-height: 53px;
 $app-banner-mobile-height: 55px;

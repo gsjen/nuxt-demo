@@ -45,33 +45,65 @@
     {
       "label": "Departments",
       "props": {
-        "to": "departments",
+        "to": "/departments",
         "nuxt": true
       },
       "children": [
         {
-          "label": "Personal Shopper"
+          "label": "Personal Shopper",
+          "props": {
+            "to": "/departments/personal-shopper",
+            "nuxt": true
+          }
         },
         {
-          "label": "Produce"
+          "label": "Produce",
+          "props": {
+            "to": "/departments/produce",
+            "nuxt": true
+          }
         },
         {
-          "label": "Meat"
+          "label": "Meat",
+          "props": {
+            "to": "/departments/meat",
+            "nuxt": true
+          }
         },
         {
-          "label": "Bakery"
+          "label": "Bakery",
+          "props": {
+            "to": "/departments/bakery",
+            "nuxt": true
+          }
         },
         {
-          "label": "Deli"
+          "label": "Deli",
+          "props": {
+            "to": "/departments/deli",
+            "nuxt": true
+          }
         },
         {
-          "label": "Compounding Pharmacy"
+          "label": "Compounding Pharmacy",
+          "props": {
+            "to": "/departments/pharmacy",
+            "nuxt": true
+          }
         },
         {
-          "label": "Signature Items"
+          "label": "Signature Items",
+          "props": {
+            "to": "/departments/signature-items",
+            "nuxt": true
+          }
         },
         {
-          "label": "Gift Cards"
+          "label": "Gift Cards",
+          "props": {
+            "to": "/departments/gift-cards",
+            "nuxt": true
+          }
         }
       ]
     },

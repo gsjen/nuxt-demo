@@ -1,47 +1,53 @@
 {
-  "facebookPage": "petersonsfreshmarket",
+  "facebookPage": "petersonsmarket",
+  "adviewerUrl": "https://www.ecomadviewer.com/petersonsfreshmarket.com",
+  "searchableCategories": ["events", "recipes"],
   "locations": [
     {
       "name": "Riverton",
+      "address": "1784 West 12600 South",
+      "city": "Riverton",
+      "state": "UT",
+      "zip": "84065",
       "phoneNumber": "801-254-0761",
       "faxNumber": "801-446-7832",
       "pharmacyPhoneNumber": "801-254-0809",
       "storeHours": [
         {
-          "Day": "Mon-Sat",
-          "Hours": "6:00 AM to 11:00 PM"
+          "day": "Mon-Sat",
+          "hours": "6:00 AM to 11:00 PM"
         },
         {
-          "Day": "Sunday",
-          "Hours": "Closed"
+          "day": "Sunday",
+          "hours": "Closed"
         }
       ],
       "pharmacyHours": [
         {
-          "Day": "Mon-Fri",
-          "Hours": "9:00 AM to 9:00 PM"
+          "day": "Mon-Fri",
+          "hours": "9:00 AM to 9:00 PM"
         },
         {
-          "Day": "Saturday",
-          "Hours": "9:00 AM to 7:00 PM"
+          "day": "Saturday",
+          "hours": "9:00 AM to 7:00 PM"
         },
         {
-          "Day": "Sunday",
-          "Hours": "Closed"
+          "day": "Sunday",
+          "hours": "Closed"
         }
       ],
       "seniorShoppingHours": [
         {
-          "Day": "Monday",
-          "Hours": "7:00 AM to 8:00 AM"
+          "day": "Monday",
+          "hours": "7:00 AM to 8:00 AM"
         },
         {
-          "Day": "Wednesday",
-          "Hours": "7:00 AM to 8:00 AM"
+          "day": "Wednesday",
+          "hours": "7:00 AM to 8:00 AM"
         },
         {
-          "Day": "Friday",
-          "Hours": "7:00 AM to 8:00 AM"
+          "day": "Friday",
+          "hours": "7:00 AM to 8:00 AM"
         }
       ]
     }

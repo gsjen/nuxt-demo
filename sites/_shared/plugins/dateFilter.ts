@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-const locale = navigator.language;
+const locale = process.server ? 'en-US' : navigator.language;
 const filter = function (value: string | Date | null, options?: Intl.DateTimeFormatOptions | string) {
   // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
   if (!value) {
@@ -22,6 +22,17 @@ const filter = function (value: string | Date | null, options?: Intl.DateTimeFor
       month: 'short',
       year: 'numeric',
       day: 'numeric'
+    });
+  }
+  if (options === 'long') {
+    return offsetDate.toLocaleDateString(locale, {
+      month: 'short',
+      year: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true
     });
   }
   if (options === 'date-picker') {

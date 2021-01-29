@@ -25,7 +25,13 @@
       >
         Weekly Ad
       </nav-btn>
-      <nav-btn large color="secondary" class="hidden-xs-only">
+      <nav-btn
+        large
+        color="secondary"
+        class="hidden-xs-only"
+        to="/personal-shopper"
+        nuxt
+      >
         Shop Online
       </nav-btn>
       <nav-btn
@@ -51,27 +57,30 @@
 import Vue from 'vue'
 import { bxMenu } from 'shared/assets/icons/box-icons'
 import SvgIcon from 'shared/components/SvgIcon.vue'
+import media from 'shared/plugins/media'
 
 export default Vue.extend({
   components: { SvgIcon },
   data: () => ({
     menuIcon: bxMenu,
   }),
-  head: {
-    link: [
-      {
-        rel: 'preload',
-        as: 'image',
-        media: '(max-width: 960px) and (max-resolution: 72dpi)',
-        href: 'http://localhost:3000/logo.png?nf_resize=fit&w=220',
-      },
-      {
-        rel: 'preload',
-        as: 'image',
-        media: '(min-width: 961px)',
-        href: 'http://localhost:3000/logo.png?nf_resize=fit&w=285',
-      },
-    ],
+  head() {
+    return {
+      link: [
+        {
+          rel: 'preload',
+          as: 'image',
+          media: '(max-width: 960px) and (max-resolution: 72dpi)',
+          href: this.$media('/logo.png?nf_resize=fit&w=220'),
+        },
+        {
+          rel: 'preload',
+          as: 'image',
+          media: '(min-width: 961px)',
+          href: this.$media('/logo.png?nf_resize=fit&w=285'),
+        },
+      ],
+    }
   },
 })
 </script>

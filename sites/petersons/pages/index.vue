@@ -1,12 +1,13 @@
 <template>
-  <v-container pt-6 pb-0 px-6>
+  <v-container fluid pt-6 px-6>
     <v-row>
-      <v-col cols="8">
+      <v-col sm="12" md="8">
         <section>
           <post-carousel></post-carousel>
         </section>
         <section class="py-3">
-          <h1 class="primary--text text-h4">Latest News &amp; Events</h1>
+          <h1 class="text-h1">Latest News &amp; Events</h1>
+          <post-list limit="4"></post-list>
           <v-row>
             <v-col>
               <v-skeleton-loader
@@ -55,33 +56,24 @@
         </section>
         <v-divider></v-divider>
         <section class="pt-3">
-          <h1 class="primary--text text-h4">Our Heritage</h1>
-          <v-row>
-            <v-col>
-              <v-skeleton-loader
-                boilerplate
-                type="image, list-item-three-line"
-              ></v-skeleton-loader>
-            </v-col>
-          </v-row>
+          <post category="corporate" slug="our-heritage"></post>
         </section>
       </v-col>
 
-      <v-col cols="4">
+      <v-col sm="12" md="4">
         <v-row>
           <v-col>
-            <v-skeleton-loader
-              boilerplate
-              type="table-heading, image, list-item-three-line@4"
-            ></v-skeleton-loader>
+            <personal-shopper></personal-shopper>
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <v-skeleton-loader
-              boilerplate
-              type="table-heading, image, list-item-three-line@4"
-            ></v-skeleton-loader>
+            <store-information> </store-information>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <store-services></store-services>
           </v-col>
         </v-row>
       </v-col>
@@ -90,11 +82,14 @@
 </template>
 
 <script lang="ts">
-import PostCarousel from 'shared/components/PostCarousel.vue'
-export default {
-  components: { PostCarousel },
+import Vue from 'vue'
+import StoreInformation from 'shared/components/StoreInformation.vue'
+import StoreServices from 'shared/components/StoreServices.vue'
+
+export default Vue.extend({
+  components: { StoreInformation, StoreServices },
   head: {
     title: '',
   },
-}
+})
 </script>

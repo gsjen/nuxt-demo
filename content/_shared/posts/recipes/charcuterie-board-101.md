@@ -2,6 +2,8 @@
 title: Charcuterie Board 101
 date: 2018-12-27T04:00:00.000Z
 description: Learn Charcuterie 101
+stores:
+  - petersons
 ---
 
 <post-image src="/CheeseBoard_250x250_17_AFS.jpg" shared max-width="250" alt="Cheese board"></post-image>

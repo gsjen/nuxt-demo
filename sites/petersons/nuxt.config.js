@@ -4,6 +4,12 @@ module.exports = base.merge({
   vuetify: {
     icons: {
       iconfont: 'mdiSvg',
+      values: {
+        prev:
+          'M13.293 6.293L7.586 12 13.293 17.707 14.707 16.293 10.414 12 14.707 7.707z', //bx-chevron-left
+        next:
+          'M10.707 17.707L16.414 12 10.707 6.293 9.293 7.707 13.586 12 9.293 16.293z', // bx-chevron-right
+      },
     },
     theme: {
       themes: {
@@ -24,5 +30,19 @@ module.exports = base.merge({
   },
   modules: ['~/../_shared/modules/vuetify.js'],
   loading: false,
-  plugins: [{ src: '~/../_shared/plugins/dateFilter.ts', mode: 'client' }],
+  plugins: [{ src: '~/../_shared/plugins/dateFilter.ts' }],
+
+  content: {
+    markdown: {
+      rehypePlugins: [
+        [
+          'rehype-add-classes',
+          {
+            h1: 'text-h1',
+            p: 'text-body-2',
+          },
+        ],
+      ],
+    },
+  },
 })

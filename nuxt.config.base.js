@@ -65,6 +65,7 @@ const config = {
 
   content: {
     dir: '../../content',
+    liveEdit: false,
     markdown: {
       prism: {
         theme: false,
