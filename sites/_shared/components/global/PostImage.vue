@@ -21,12 +21,12 @@ export default Vue.extend({
     url() {
       let url = this.src
       if (this.maxWidth) {
-        url += '?nf_resize=fit&w=' + this.maxWidth
+        url += '?nf_resize=fit&w=' + parseFloat(this.maxWidth as string)
         if (this.maxHeight) {
-          url += '&h=' + this.maxHeight
+          url += '&h=' + parseFloat(this.maxHeight as string)
         }
       } else if (this.maxHeight) {
-        url += '?nf_resize=fit&h=' + this.maxHeight
+        url += '?nf_resize=fit&h=' + parseFloat(this.maxHeight as string)
       }
       return url
     },
