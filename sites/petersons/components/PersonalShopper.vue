@@ -1,6 +1,6 @@
 <template>
   <v-card color="transparent">
-    <v-card-title class="text-h3"> Personal Shopper</v-card-title>
+    <v-card-title class="text-h3">Personal Shopper</v-card-title>
     <v-img
       :src="$media('/personalShopperLogo.png')"
       contain
