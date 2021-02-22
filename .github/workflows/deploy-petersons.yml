@@ -1,4 +1,6 @@
 name: Deploy Petersons to Netlify
+env:
+  FORCED: false
 on:
   push:
     branches: [master]
@@ -7,6 +9,7 @@ on:
       - 'content/petersons/**'
       - 'content/_shared/**'
   workflow_dispatch:
+    FORCED: true
 
 jobs:
   build:
@@ -30,7 +33,7 @@ jobs:
       - run: npm ci
 
       - working-directory: sites/petersons
-        run: GITHUB_REF=$GITHUB_REF CI=1 npm run generate
+        run: GITHUB_REF=$GITHUB_REF CI=1 npm run generate --force-build=$FORCED --fail-on-error=true
 
       - uses: nwtgck/actions-netlify@v1.1
         with:
