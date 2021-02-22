@@ -30,7 +30,7 @@ jobs:
       - run: npm ci
 
       - working-directory: sites/petersons
-        run: GITHUB_REF=$GITHUB_REF CI=1 npm run generate --fail-on-error
+        run: GITHUB_REF=$GITHUB_REF CI=1 npm run generate
 
       - uses: nwtgck/actions-netlify@v1.1
         with:
