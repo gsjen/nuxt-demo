@@ -15,6 +15,8 @@ export default Vue.extend({
     services: null,
   }),
 
+  fetchKey: 'storeServices',
+
   async fetch() {
     this.services = await this.$content(
       this.$nuxt.context.env.sitePath + '/store-services'

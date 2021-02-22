@@ -29,6 +29,10 @@ export default Vue.extend({
     },
   },
 
+  fetchKey(getKey: (id: string) => number): string {
+    return `${this.category}/${this.slug}/${getKey('post')}`
+  },
+
   async fetch() {
     let query = `${
       this.shared ? '_shared' : this.$nuxt.context.env['sitePath']
