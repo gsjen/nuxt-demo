@@ -46,10 +46,11 @@ export default Vue.extend({
   }),
 
   methods: {
-    getLabel: (key) => startCase(key),
+    getLabel: (key: string) => startCase(key),
   },
-
+  fetchKey: 'storeInformation',
   async fetch() {
+    console.debug('fetching store info')
     const storeInfo = (await this.$content(
       this.$nuxt.context.env.sitePath + '/store-information'
     ).fetch()) as any
