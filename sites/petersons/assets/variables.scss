@@ -24,15 +24,15 @@ $headings: (
     'letter-spacing': 0.0073529412em,
   ),
   'h2': (
-    'size': 1.2rem,
-    'weight': 600,
-    'line-height': 2.25rem,
-    'letter-spacing': 0.03em,
-  ),
-  'h3': (
     'size': 1.5rem,
     'weight': 700,
     'line-height': 2rem,
+  ),
+  'h3': (
+    'size': 1.2rem,
+    'weight': 600,
+    'line-height': 1.6rem,
+    'letter-spacing': 0.03em,
   ),
   'h4': (
     'weight': 700,
@@ -75,6 +75,8 @@ $list-item-min-height: 36px;
 $list-group-no-action-item-padding: 36px;
 
 $pagination-navigation-disabled-opacity: 0.4;
+
+$card-title-word-break: normal;
 
 $app-banner-height: 53px;
 $app-banner-mobile-height: 55px;

@@ -3,7 +3,7 @@ import { Inject } from '@nuxt/types/app'
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $media: (path: string, shared?: boolean) => string;
+    $media: (path: string, shared?: boolean) => string
   }
 }
 

@@ -1,10 +1,10 @@
 <template>
   <v-card color="transparent">
-    <v-card-title class="text-h3">Personal Shopper</v-card-title>
+    <v-card-title class="text-h2">Personal Shopper</v-card-title>
     <v-img
       :src="$media('/personalShopperLogo.png')"
       contain
-      :max-height="200"
+      :height="200"
     ></v-img>
     <v-card-text class="text-center">
       <v-btn large color="secondary" to="/personal-shopper"

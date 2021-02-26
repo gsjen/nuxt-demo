@@ -1,11 +1,11 @@
 <template>
   <v-card v-if="!$fetchState.pending" color="transparent">
-    <v-card-title class="text-h3 mb-2">
+    <v-card-title class="text-h2">
       <slot name="icon"></slot>
       Store Information</v-card-title
     >
     <template v-for="item in items">
-      <v-card-subtitle class="py-0 font-weight-bold" :key="item.label">{{
+      <v-card-subtitle class="py-0 mt-0 font-weight-bold" :key="item.label">{{
         item.label
       }}</v-card-subtitle>
       <v-card-text
@@ -20,7 +20,7 @@
       :address="mapsAddress"
       width="100%"
       height="500"
-      class="pa-3"
+      class="pt-3"
     ></google-maps>
   </v-card>
 </template>

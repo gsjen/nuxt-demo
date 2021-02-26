@@ -15,16 +15,20 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import SvgIcon from 'shared/components/SvgIcon.vue'
 import { bxUser, bxLockAlt } from 'shared/assets/icons/box-icons'
 
-export default {
+export default Vue.extend({
   components: { SvgIcon },
-  data: () => ({
-    userIcon: bxUser,
-    registerIcon: bxLockAlt,
-  }),
-}
+
+  data() {
+    return {
+      userIcon: bxUser,
+      registerIcon: bxLockAlt,
+    }
+  },
+})
 </script>
 
 <style lang="scss">

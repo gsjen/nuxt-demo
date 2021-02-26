@@ -17,15 +17,15 @@ We have gone to great lengths to carry only the finest fruits and vegetables and
 
 <v-row :class="['justify-center']">
   <v-col sm="3">
-    <nuxt-link to="/departments/produce"><post-image src="/produce.jpg" max-width="100%" alt="Produce"></post-image></nuxt-link>
+    <nuxt-link to="/departments/produce"><media-image src="/produce.jpg" max-width="100%" alt="Produce"></media-image></nuxt-link>
   </v-col>
   <v-col sm="3">
-    <nuxt-link to="/departments/meat"><post-image src="/meat.jpg" max-width="100%" alt="Meat"></post-image></nuxt-link>
+    <nuxt-link to="/departments/meat"><media-image src="/meat.jpg" max-width="100%" alt="Meat"></media-image></nuxt-link>
   </v-col>
   <v-col sm="3">
-    <nuxt-link to="/departments/bakery"><post-image src="/bakery.jpg" max-width="100%" alt="Bakery"></post-image></nuxt-link>
+    <nuxt-link to="/departments/bakery"><media-image src="/bakery.jpg" max-width="100%" alt="Bakery"></media-image></nuxt-link>
   </v-col>
   <v-col sm="3">
-    <nuxt-link to="/departments/deli"><post-image src="/deli.jpg" max-width="100%" alt="Deli"></post-image></nuxt-link>
+    <nuxt-link to="/departments/deli"><media-image src="/deli.jpg" max-width="100%" alt="Deli"></media-image></nuxt-link>
   </v-col>
 </v-row>

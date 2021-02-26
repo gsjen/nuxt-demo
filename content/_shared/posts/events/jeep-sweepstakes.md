@@ -38,13 +38,13 @@ tags:
 coverImage: /events/AFS-Jeep-Ad-(1042x1008)-page-001.jpg
 ---
 
-<post-image src="/events/AFS-Jeep-Ad-960x450-page-001-1024x480.jpg" shared></post-image>
+<media-image src="/events/AFS-Jeep-Ad-960x450-page-001-1024x480.jpg" shared></media-image>
 
 **Win a Jeep Renegade!**
 
 Swire Coca-Cola, Larry H. Miller Jeep, and Associated Food Stores have come together to give away a Jeep Renegade to one lucky winner.
 
-Starting January 20 through March 2 rewards members will be entered to win a Jeep Renegade and a $500 wallet credit for every $15 in Coke products they purchase. Provide your rewards phone number during checkout and you will be automatically entered when you purchase any Coke product!
+Starting January 20 through March 2 rewards members will be ente<!--more-->red to win a Jeep Renegade and a $500 wallet credit for every $15 in Coke products they purchase. Provide your rewards phone number during checkout and you will be automatically entered when you purchase any Coke product!
 
 You will be able to view your entries on your rewards account after logging into your account on our website.
 

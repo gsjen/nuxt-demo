@@ -45,10 +45,14 @@ import Vue from 'vue'
 import { mdiMenuDown } from '@mdi/js'
 
 export default Vue.extend({
-  data: () => ({
-    menu: [] as any[],
-    menuIcon: mdiMenuDown,
-  }),
+  name: 'app-nav-drawer',
+
+  data() {
+    return {
+      menu: [] as any[],
+      menuIcon: mdiMenuDown,
+    }
+  },
 
   async fetch() {
     const result = await this.$content('petersons/menus/main-menu').fetch()

@@ -27,5 +27,6 @@
       "vuetify"
     ]
   },
+  "include": ["sites/_shared/plugins/*"],
   "exclude": ["node_modules", ".nuxt", "dist", "*.template.ts"]
 }

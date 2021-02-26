@@ -1,11 +1,12 @@
 ---
 title: Our Heritage
 date: 2018-12-27T04:00:00.000Z
+searchable: false
 ---
 
 # Our Heritage
 
-<post-image src="/petersonsDeliCase.png" max-width="260px" alt="Deli items at Petersons" :class="['float-left','mr-6','mb-4']"></post-image>
+<media-image src="/petersonsDeliCase.png" :width="260" :min-height="209" alt="Deli items at Petersons" :class="['float-left','mr-6','mb-4']"></media-image>
 
 Peterson's Market was started in 1938 by Louis William Peterson, affectionately called "Lute". His youngest son Bruce Peterson along with his wife Dona took over the business in 1951 and have grown the company from its humble beginnings to what you see now, a full-service grocery store.
 

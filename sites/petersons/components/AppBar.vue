@@ -57,13 +57,16 @@
 import Vue from 'vue'
 import { bxMenu } from 'shared/assets/icons/box-icons'
 import SvgIcon from 'shared/components/SvgIcon.vue'
-import media from 'shared/plugins/media'
 
 export default Vue.extend({
   components: { SvgIcon },
-  data: () => ({
-    menuIcon: bxMenu,
-  }),
+
+  data() {
+    return {
+      menuIcon: bxMenu,
+    }
+  },
+
   head() {
     return {
       link: [

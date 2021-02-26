@@ -14,10 +14,10 @@
 a:not(.nav-btn) {
   color: var(--v-secondary-base);
   text-decoration: none;
+}
 
-  &:hover {
-    text-decoration: underline;
-  }
+a:not(.v-btn):hover {
+  text-decoration: underline;
 }
 
 ::marker {
@@ -34,5 +34,58 @@ a:not(.nav-btn) {
 
 .text-h1 {
   color: var(--v-primary-base);
-  margin-bottom: 12px;
+  margin-bottom: #{map-get($spacers, 3)};
+}
+
+.text-h2 {
+  color: var(--v-primary-base);
+}
+
+.v-card--dense {
+  .v-card__title {
+    padding: #{map-get($spacers, 2)} 0;
+  }
+
+  .v-card__subtitle {
+    padding: #{map-get($spacers, 2)} 0;
+  }
+
+  .v-card__text {
+    padding: 0 0 #{map-get($spacers, 4)} 0;
+
+    p {
+      margin-bottom: #{map-get($spacers, 2)};
+    }
+  }
+
+  .v-card__actions {
+    padding: 0;
+  }
+}
+
+@for $i from 1 through 5 {
+  .text-line-clamp-#{$i} {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: #{$i};
+    overflow: hidden;
+  }
+}
+
+.v-image--stretch > .v-image__image {
+  background-size: 100% 100%;
+}
+
+.post-carousel {
+  .v-card__actions > .v-btn {
+    background-color: var(--v-secondary-base);
+  }
+}
+
+@media #{map-get($display-breakpoints, 'xs-only')} {
+  .post-carousel {
+    min-width: 100vw;
+    margin-top: #{map-get($negative-spacers, 'n6')};
+    margin-left: #{map-get($negative-spacers, 'n6')};
+  }
 }

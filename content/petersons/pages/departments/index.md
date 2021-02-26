@@ -9,15 +9,15 @@ We pride ourselves on providing you, our valued customers, a superior shopping "
 
 <v-row :class="['mt-4', 'justify-center']">
   <v-col cols="auto">
-    <nuxt-link to="/departments/produce"><post-image src="/produce.jpg" max-width="280px" alt="Produce"></post-image></nuxt-link>
+    <nuxt-link to="/departments/produce"><media-image src="/produce.jpg" max-width="280px" alt="Produce"></media-image></nuxt-link>
   </v-col>
   <v-col cols="auto">
-    <nuxt-link to="/departments/meat"><post-image src="/meat.jpg" max-width="280px" alt="Meat"></post-image></nuxt-link>
+    <nuxt-link to="/departments/meat"><media-image src="/meat.jpg" max-width="280px" alt="Meat"></media-image></nuxt-link>
   </v-col>
   <v-col cols="auto">
-    <nuxt-link to="/departments/bakery"><post-image src="/bakery.jpg" max-width="280px" alt="Bakery"></post-image></nuxt-link>
+    <nuxt-link to="/departments/bakery"><media-image src="/bakery.jpg" max-width="280px" alt="Bakery"></media-image></nuxt-link>
   </v-col>
   <v-col cols="auto">
-    <nuxt-link to="/departments/deli"><post-image src="/deli.jpg" max-width="280px" alt="Deli"></post-image></nuxt-link>
+    <nuxt-link to="/departments/deli"><media-image src="/deli.jpg" max-width="280px" alt="Deli"></media-image></nuxt-link>
   </v-col>
 </v-row>

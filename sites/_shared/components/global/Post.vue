@@ -1,49 +1,31 @@
-<template>
-  <component v-if="component" :is="component" :post="post"></component>
-  <article v-else class="post" :class="classes">
-    <nuxt-content :document="post"></nuxt-content>
-  </article>
-</template>
-
 <script lang="ts">
-import Vue from 'vue'
-import { IContentDocument } from '@nuxt/content/types/content'
+import { CreateElement } from 'Vue'
+import PostMixin from '../../mixins/PostMixin'
+import mixins from 'vue-typed-mixins'
 
-export default Vue.extend({
-  props: {
-    category: String,
-    slug: String,
-    shared: Boolean,
-    component: String,
-  },
-
-  data() {
-    return {
-      post: null as IContentDocument,
+export default mixins(PostMixin).extend({
+  render(h: CreateElement) {
+    if (!this.post) {
+      return
     }
-  },
-
-  computed: {
-    classes(): string[] {
-      return [this.category, this.$attrs['class']]
-    },
-  },
-
-  fetchKey(getKey: (id: string) => number): string {
-    return `${this.category}/${this.slug}/${getKey('post')}`
-  },
-
-  async fetch() {
-    let query = `${
-      this.shared ? '_shared' : this.$nuxt.context.env['sitePath']
-    }/posts/`
-    if (this.category) {
-      query += `${this.category}/${this.slug}`
-    } else {
-      query += `${this.slug}`
+    if (this.$scopedSlots.default) {
+      return this.$scopedSlots.default({
+        post: this.post,
+      })[0]
     }
-
-    this.post = (await this.$content(query).fetch()) as IContentDocument
+    return h(
+      'article',
+      {
+        staticClass: 'post',
+      },
+      [
+        h('nuxt-content', {
+          attrs: {
+            document: this.post,
+          },
+        }),
+      ]
+    )
   },
 })
 </script>

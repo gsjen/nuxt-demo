@@ -1,6 +1,7 @@
 ---
 startDate: 2021-01-19
 endDate: 2021-03-31
+searchable: false
 ---
 
 # Promotion Terms and Conditions

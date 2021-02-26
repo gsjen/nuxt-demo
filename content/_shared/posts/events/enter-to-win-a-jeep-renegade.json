@@ -2,8 +2,10 @@
   "startDate": "2021-01-20",
   "endDate": "2021-02-28",
   "featured": true,
-  "featureImage": "/events/AFS-Jeep-Ad-960x450-page-001-1024x480.jpg",
-  "featureTitle": "Enter to win a Jeep Renegade!",
-  "featureText": "Starting January 20 through March 2 rewards members will be entered to win a Jeep Renegade and a $500 wallet credit for every $15 in Coke products they purchase. Provide your rewards phone number during checkout and you will be automatically entered when you purchase any Coke product!",
-  "featureLink": "/posts/events/jeep-sweepstakes"
+  "coverImage": "/events/AFS-Jeep-Ad-960x450-page-001-1024x480.jpg",
+  "stretchImage": true,
+  "title": "Enter to win a Jeep Renegade!",
+  "description": "Starting January 20 through March 2 rewards members will be entered to win a Jeep Renegade and a $500 wallet credit for every $15 in Coke products they purchase. Provide your rewards phone number during checkout and you will be automatically entered when you purchase any Coke product!",
+  "link": "/posts/events/jeep-sweepstakes",
+  "stores": "petersons"
 }

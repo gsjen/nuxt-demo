@@ -4,6 +4,7 @@ sites:
   - maceys
   - petersons
 date: 2021-01-05T14:10:53.000Z
+searchable: false
 ---
 
 # Dole Sesame Asian Chopped Salad 13.6oz

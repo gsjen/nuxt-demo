@@ -58,12 +58,18 @@ import SvgIcon from 'shared/components/SvgIcon.vue'
 import { bxlFacebook } from 'shared/assets/icons/box-icons'
 
 export default Vue.extend({
+  name: 'app-footer',
+
   components: { SvgIcon },
-  data: () => ({
-    menu: [] as any[],
-    facebookPage: '',
-    facebookIcon: bxlFacebook,
-  }),
+
+  data() {
+    return {
+      menu: [] as any[],
+      facebookPage: '',
+      facebookIcon: bxlFacebook,
+    }
+  },
+
   async fetch() {
     const storeInfo = await this.$content('petersons/store-information').fetch()
     if (storeInfo) {

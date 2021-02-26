@@ -1,16 +1,16 @@
 <template>
   <v-app :class="{ '--show-banner': showBanner }">
-    <AppBanner :banner="banner" v-model="showBanner"></AppBanner>
+    <app-banner :banner="banner" v-model="showBanner"></app-banner>
 
-    <AppSystemBar></AppSystemBar>
+    <app-system-bar></app-system-bar>
 
-    <AppBar @show-drawer="showDrawer = true"></AppBar>
+    <app-bar @show-drawer="showDrawer = true"></app-bar>
 
-    <AppNavDrawer v-model="showDrawer"></AppNavDrawer>
+    <app-nav-drawer v-model="showDrawer"></app-nav-drawer>
 
-    <AppView></AppView>
+    <app-view></app-view>
 
-    <AppFooter></AppFooter>
+    <app-footer></app-footer>
   </v-app>
 </template>
 
@@ -18,6 +18,8 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  name: 'main-layout',
+
   components: {
     AppBanner: () => import('../components/AppBanner.vue'),
     AppSystemBar: () => import('../components/AppSystemBar.vue'),
@@ -25,15 +27,18 @@ export default Vue.extend({
     AppView: () => import('../components/AppView.vue'),
     AppFooter: () => import('../components/AppFooter.vue'),
   },
-  data: () => ({
-    banner: null,
-    showBanner: false,
-    showDrawer: false,
-  }),
 
   head: {
     titleTemplate: (title) =>
       ((title && title + ' - ') || '') + "Peterson's Fresh Market",
+  },
+
+  data() {
+    return {
+      banner: null,
+      showBanner: false,
+      showDrawer: false,
+    }
   },
 
   async fetch() {
@@ -74,7 +79,6 @@ export default Vue.extend({
 
     this.showBanner = !!this.banner
   },
-  //fetchOnServer: false,
 })
 </script>
 

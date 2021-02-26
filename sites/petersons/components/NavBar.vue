@@ -31,22 +31,28 @@ import { mdiMenuDown } from '@mdi/js'
 import merge from 'lodash/merge'
 
 export default Vue.extend({
-  data: () => ({
-    menu: [] as any[],
-    menuIcon: mdiMenuDown,
-    menuProps: {
-      eager: true,
-      openOnHover: true,
-      offsetY: true,
-      attach: '#app-bar > .v-toolbar__extension .v-toolbar__content',
-      transition: 'slide-y-transition',
-      zIndex: -1,
-    },
-  }),
+  name: 'nav-bar',
+
+  data() {
+    return {
+      menu: [] as any[],
+      menuIcon: mdiMenuDown,
+      menuProps: {
+        eager: true,
+        openOnHover: true,
+        offsetY: true,
+        attach: '#app-bar > .v-toolbar__extension .v-toolbar__content',
+        transition: 'slide-y-transition',
+        zIndex: -1,
+      },
+    }
+  },
+
   async fetch() {
     const result = await this.$content('petersons/menus/main-menu').fetch()
     this.menu = (result as any).menu
   },
+
   methods: {
     merge: merge,
   },

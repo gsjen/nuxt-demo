@@ -127,6 +127,12 @@ const config = {
         }
       },
     },
+    'content:file:beforeInsert': (document) => {
+      if (_.startsWith(document.path, '/_shared')) {
+        document.$shared = true
+        document.path = document.path.substr(8)
+      }
+    },
   },
 
   serverMiddleware: [
