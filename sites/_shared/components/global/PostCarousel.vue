@@ -4,7 +4,7 @@
       class="post-carousel"
       show-arrows-on-hover
       hide-delimiters
-      :cycle="false"
+      :cycle="!hover"
       :show-arrows="posts.length > 1"
       v-bind="$attrs"
       :height="height"
