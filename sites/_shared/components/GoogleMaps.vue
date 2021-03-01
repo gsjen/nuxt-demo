@@ -1,5 +1,11 @@
 <template>
-  <iframe class="google-maps" :width="width" :height="height" :src="src">
+  <iframe
+    class="google-maps"
+    title="Google Maps"
+    :width="width"
+    :height="height"
+    :src="src"
+  >
   </iframe>
 </template>
 
