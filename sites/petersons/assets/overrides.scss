@@ -11,12 +11,12 @@
   background-color: var(--v-primary-base);
 }
 
-a:not(.nav-btn) {
+.v-application a:not(.v-btn) {
   color: var(--v-secondary-base);
   text-decoration: none;
 }
 
-a:not(.v-btn):hover {
+.v-application a:not(.v-btn):hover {
   text-decoration: underline;
 }
 

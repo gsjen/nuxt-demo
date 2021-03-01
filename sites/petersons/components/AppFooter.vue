@@ -13,7 +13,7 @@
             rel="noreferrer nofollow noopener external"
           >
             <svg-icon :icon="facebookIcon" large></svg-icon>
-            <h3>Connect with us on Facebook</h3>
+            <span class="text-h4">Connect with us on Facebook</span>
           </nav-btn>
         </v-card-text>
       </v-card>
